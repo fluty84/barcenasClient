@@ -1,0 +1,14 @@
+#createTableForm {
+  width: 50%;
+  padding: 20px;
+}
+
+#createTableContainer {
+  display: flex;
+  justify-content: center;
+  background-color: aliceblue;
+}
+
+#createTableForm > div {
+  padding: 50px;
+}
