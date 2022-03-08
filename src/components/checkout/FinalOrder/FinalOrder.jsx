@@ -69,14 +69,13 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
 
                     arrOfOrders[0][index].push(menuItem.price)
                 }
-
               })
-
             }
           })
         })
      
       setArrFinalOrder((arrOfOrders.flat() ))
+      getDataFromFinalOrder((arrOfOrders.flat()))
     
   }
 
