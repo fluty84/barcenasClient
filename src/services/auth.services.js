@@ -34,8 +34,6 @@ class AuthService {
 
         const {password, customer} = costumerData
 
-        console.log(password, customer, tableId)
-
         return this.api.post(`/auth/new-customer/${tableId}`, {password, customer})
     }
 
