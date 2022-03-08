@@ -1,4 +1,4 @@
-import { InputLabel, Container, TextField, Button, Select, MenuItem } from '@mui/material'
+import { InputLabel, TextField, Button, Select, MenuItem } from '@mui/material'
 import { useContext, useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { AuthContext } from '../../context/auth.context'
@@ -12,9 +12,6 @@ const FormMenu = () => {
 const { isLoggedIn } = useContext(AuthContext)
 
 const { user } = useContext(AuthContext)
-
-console.log('user is logged', isLoggedIn, user._id)
-
 
 const [productData, setproductData] = useState(
     {
@@ -31,15 +28,12 @@ const [loadingImage, setLoadingImage] = useState(false)
 
 const [newProduct, setNewProduct] = useState(false)
 
-const { name, price, category, allergens, restaurantId, imageUrl } = productData
+const { name, price, category, allergens } = productData
 
 const handleInputChange = e => {
 
     const { value, name } = e.target
-
-    console.log(name)
-    console.log(value)
-
+    
     setproductData({
         ...productData,
         [name]: value
@@ -54,7 +48,6 @@ const handleSubmit = e => {
     productService
         .saveProduct(productData)
         .then(({ data }) => {
-            console.log(data)
             toggleNew()
         })
         .catch(err => console.log(err))

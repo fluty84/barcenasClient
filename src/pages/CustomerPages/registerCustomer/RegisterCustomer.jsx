@@ -1,12 +1,9 @@
 
-import { FormControl, Input, InputLabel, FormHelperText, Container, Grid, TextField, Button } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { Grid, TextField, Button } from '@mui/material'
+import { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import restaurantService from '../../../services/restaurant.services'
 import authService from '../../../services/auth.services'
 import { useNavigate, useParams } from 'react-router-dom'
-
-
 
 
 const RegisterCustomer = () => {
@@ -21,10 +18,7 @@ const RegisterCustomer = () => {
         }
     )
 
-
-
     const { customer, password } = customerData
-
 
     const handleInputChange = e => {
 
@@ -49,7 +43,6 @@ const RegisterCustomer = () => {
     }
 
     return (
-
 
         <>
             <Grid container>
@@ -82,9 +75,6 @@ const RegisterCustomer = () => {
                     </Button>
                 </Form>
             </Grid>
-
-
-
 
         </>
 

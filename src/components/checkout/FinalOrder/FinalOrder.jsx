@@ -4,11 +4,9 @@ import restaurantService from "../../../services/restaurant.services";
 import { AuthContext } from "../../../context/auth.context";
 import { useContext } from "react";
 
-const FinalOrder = ({getDataFromFinalOrder}) => {
-  
-  const { id, tableId } = useParams();
+const FinalOrder = ({ getDataFromFinalOrder }) => {
 
-
+  const { tableId } = useParams();
   const [finalOrderData, setFinalOrderData] = useState([]);
   const [orderDataNoIds, setOrderDataNoIds] = useState([]);
   const [arrFinalOrder, setArrFinalOrder] = useState([]);
@@ -27,16 +25,17 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
     restaurantService
       .checkTable(tableId)
       .then((res) => {
-       setMenuData(res.data.restaurantId[0].menu)
-       setFinalOrderData(res.data.total.flat()) })
+        setMenuData(res.data.restaurantId[0].menu)
+        setFinalOrderData(res.data.total.flat())
+      })
       .catch((e) => console.log(e));
   }, []);
 
-  useEffect (()=> {
+  useEffect(() => {
     console.log("ejecutado")
     getDataFromFinalOrder(arrFinalOrder)
-    
-  },[arrFinalOrder])
+
+  }, [arrFinalOrder])
 
   const filterOutIds = (arrOfObjects) => {
     const objectWithoutId = [];
@@ -49,38 +48,38 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
 
   const objToArr = (arrOfObjects) => {
     const arrOfOrders = [];
-       
+
     arrOfObjects.forEach((elm, index) => {
 
-          arrOfOrders.push(Object.entries(elm))
-  
-            
-            menuData.forEach((menuItem) => {
-              
-              for (const property in menuItem) {
-              
-              arrOfOrders[0].forEach((item, index) => {
+      arrOfOrders.push(Object.entries(elm))
 
-                if (menuItem.name === arrOfOrders[0][index][0]) {
-                  
-                  console.log(menuItem.name, arrOfOrders[0][index][0])
-                 
-                  arrOfOrders[0][index].length < 3 &&
 
-                    arrOfOrders[0][index].push(menuItem.price)
-                }
-              })
+      menuData.forEach((menuItem) => {
+
+        for (const property in menuItem) {
+
+          arrOfOrders[0].forEach((item, index) => {
+
+            if (menuItem.name === arrOfOrders[0][index][0]) {
+
+              console.log(menuItem.name, arrOfOrders[0][index][0])
+
+              arrOfOrders[0][index].length < 3 &&
+
+                arrOfOrders[0][index].push(menuItem.price)
             }
           })
-        })
-     
-      setArrFinalOrder((arrOfOrders.flat() ))
-      getDataFromFinalOrder((arrOfOrders.flat()))
-    
+        }
+      })
+    })
+
+    setArrFinalOrder((arrOfOrders.flat()))
+    getDataFromFinalOrder((arrOfOrders.flat()))
+
   }
 
 
- 
+
 
   return (
     <>

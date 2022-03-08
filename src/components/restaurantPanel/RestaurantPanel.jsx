@@ -1,4 +1,3 @@
-import CreateMenu from "../createMenu/CreateMenu";
 import CreateTable from "../createTable/CreateTable";
 import { AuthContext } from "../../context/auth.context";
 import { useContext, useState } from "react";
@@ -11,6 +10,7 @@ const RestaurantPanel = () => {
   const { _id } = value.user;
 
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

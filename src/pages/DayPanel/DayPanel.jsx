@@ -1,13 +1,12 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import restaurantService from "../../services/restaurant.services";
 import mesaOn from "./mesa-on.png";
 import mesaOff from "./mesa-off.png";
 import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -26,20 +25,19 @@ const DayPanel = () => {
   const handleClose = () => setOpen(false);
 
   socket.on("join_room", function (msg) {
-    console.log(msg, "en dayPanel");
-    console.log("this has been reached bitch");
     setIsOrder(msg);
   });
+
 
   useEffect(() => {
     loadTables();
   }, [user]);
 
+
   const didMount = useRef(false);
 
   useEffect(() => {
     if (didMount.current) {
-      console.log("OIDO COCINA");
       loadTables();
     } else {
       didMount.current = true;
@@ -47,7 +45,7 @@ const DayPanel = () => {
   }, [isOrder]);
 
   const loadTables = () => {
-    !user && console.log("el puto id", user);
+
     restaurantService
       .getRestaurant(user)
       .then((response) => setTables(response.data.tables))
@@ -61,13 +59,13 @@ const DayPanel = () => {
         {tables?.map((table, idx) => {
           return (
             <Col md={3} className="mesa" key={idx}>
-              <p>Mesa número {idx+1}</p>
+              <p>Mesa número {idx + 1}</p>
               <input
                 type="image"
                 alt="mesa"
                 onClick={() => {
                   setModalData(table);
-                  setTableNumber(idx+1)
+                  setTableNumber(idx + 1)
                   handleOpen();
                 }}
                 src={!table.currentOrder.length ? mesaOff : mesaOn}
@@ -76,7 +74,7 @@ const DayPanel = () => {
           );
         })}
       </Row>
-      
+
       <Modal
         open={open}
         onClose={handleClose}

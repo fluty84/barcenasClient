@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { useParams } from "react-router-dom";
-import CreateTable from "../table/CreateTable";
 import productService from "../../services/product.services";
 import restaurantService from "../../services/restaurant.services";
-import { Form, Table } from "react-bootstrap";
+import { Form} from "react-bootstrap";
 import io from "socket.io-client";
 import { Button } from "@mui/material";
 
@@ -13,9 +12,6 @@ const socket = io.connect("http://localhost:3001");
 function Basket(props) {
 
   const { isLoggedIn } = useContext(AuthContext);
-
-  let response = "";
-  let currentOrder = "";
 
   let { tableId, _id } = useParams();
 
@@ -69,7 +65,6 @@ function Basket(props) {
     if (didMount.current) {
       productService
         .createOrder(...orders, tableId)
-        .then(() => console.log("producto creado con exito"))
         .catch((err) => console.log(err));
     } else {
       didMount.current = true;
@@ -144,8 +139,6 @@ function Basket(props) {
           });
         });
         setTicket(cuentaTotal);
-
-        // const jsx = Object.entries(ticket).forEach(([key, value]) => {});
       });
   }
 

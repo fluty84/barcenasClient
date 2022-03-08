@@ -6,7 +6,7 @@ import authService from "../../services/auth.services"
 import { AuthContext } from "../../context/auth.context"
 import { Link, useNavigate } from "react-router-dom"
 
-import ("./LoginPage.css")
+import("./LoginPage.css")
 
 const LoginPage = () => {
   const [loginForm, setLoginForm] = useState({
@@ -65,7 +65,7 @@ const LoginPage = () => {
             value={password}
           />
         </Form.Group>
-        
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

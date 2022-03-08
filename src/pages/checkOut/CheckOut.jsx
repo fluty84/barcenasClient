@@ -6,23 +6,17 @@ const CheckOut = () => {
 
     const [totalData, setTotalData] = useState([])
 
- const getDataFromFinalOrder = (data) => {
-       
+    const getDataFromFinalOrder = (data) => {
+
         setTotalData(data)
-     
-
     }
+    return (
 
+        <>
+            <FinalOrder getDataFromFinalOrder={getDataFromFinalOrder} />
+            <ToPay totalData={totalData} />
 
-
-
-    return( 
-    
-    <>
-    <FinalOrder getDataFromFinalOrder={getDataFromFinalOrder}/>
-    <ToPay totalData={totalData}/>
-   
-    </>
+        </>
     )
 }
 
