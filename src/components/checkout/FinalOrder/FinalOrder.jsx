@@ -4,7 +4,7 @@ import restaurantService from "../../../services/restaurant.services";
 import { AuthContext } from "../../../context/auth.context";
 import { useContext } from "react";
 
-const FinalOrder = () => {
+const FinalOrder = ({getDataFromFinalOrder}) => {
 
   const { id, tableId } = useParams();
 
@@ -68,7 +68,11 @@ const FinalOrder = () => {
         });
       })
       .then(() => setArrFinalOrder((arrOfOrders.flat())))
+      .then(() => getDataFromFinalOrder(arrFinalOrder))
   }
+
+
+ 
 
   return (
     <>
