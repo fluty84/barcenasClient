@@ -1,4 +1,4 @@
-import ToPay from "../../components/checkout/toPay/ToPay.jsx"
+import ToPay from "../../components/checkout/ToPay/ToPay"
 import FinalOrder from "../../components/checkout/FinalOrder/FinalOrder"
 import { useState } from "react"
 
@@ -6,11 +6,10 @@ const CheckOut = () => {
 
     const [totalData, setTotalData] = useState([])
 
-    getDataFromFinalOrder = (data) => {
+ const getDataFromFinalOrder = (data) => {
        
-
         setTotalData(data)
-        console.log(data)
+     
 
     }
 
@@ -21,7 +20,7 @@ const CheckOut = () => {
     
     <>
     <FinalOrder getDataFromFinalOrder={getDataFromFinalOrder}/>
-    <ToPay />
+    <ToPay totalData={totalData}/>
    
     </>
     )

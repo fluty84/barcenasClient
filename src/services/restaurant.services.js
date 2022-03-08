@@ -3,11 +3,7 @@ import axios from "axios";
 class RestaurantService {
   constructor() {
     this.api = axios.create({
-<<<<<<< HEAD
             baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5005/api'
-=======
-      baseURL: process.env.REACT_APP_API_URL||"http://localhost:5005/api",
->>>>>>> eeb6c47da4b24de0e9b9bc3fd7a5691ca55a94af
     });
 
     this.api.interceptors.request.use((config) => {

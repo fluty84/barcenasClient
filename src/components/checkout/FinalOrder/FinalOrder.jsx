@@ -5,7 +5,7 @@ import { AuthContext } from "../../../context/auth.context";
 import { useContext } from "react";
 
 const FinalOrder = ({getDataFromFinalOrder}) => {
-
+  
   const { id, tableId } = useParams();
 
 
@@ -26,9 +26,17 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
   useEffect(() => {
     restaurantService
       .checkTable(tableId)
-      .then((res) => setFinalOrderData(res.data.total.flat()))
+      .then((res) => {
+       setMenuData(res.data.restaurantId[0].menu)
+       setFinalOrderData(res.data.total.flat()) })
       .catch((e) => console.log(e));
   }, []);
+
+  useEffect (()=> {
+    console.log("ejecutado")
+    getDataFromFinalOrder(arrFinalOrder)
+    
+  },[arrFinalOrder])
 
   const filterOutIds = (arrOfObjects) => {
     const objectWithoutId = [];
@@ -41,21 +49,22 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
 
   const objToArr = (arrOfObjects) => {
     const arrOfOrders = [];
-    restaurantService
-      .getRestaurant({ _id: id })
-      .then((res) => setMenuData(res.data.menu))
-      .then(() => {
-        arrOfObjects.forEach((elm, index) => {
+       
+    arrOfObjects.forEach((elm, index) => {
 
-          arrOfOrders.push(Object.entries(elm));
+          arrOfOrders.push(Object.entries(elm))
   
-          menuData.forEach((menuItem) => {
-            for (const property in menuItem) {
+            
+            menuData.forEach((menuItem) => {
+              
+              for (const property in menuItem) {
               
               arrOfOrders[0].forEach((item, index) => {
 
                 if (menuItem.name === arrOfOrders[0][index][0]) {
-
+                  
+                  console.log(menuItem.name, arrOfOrders[0][index][0])
+                 
                   arrOfOrders[0][index].length < 3 &&
 
                     arrOfOrders[0][index].push(menuItem.price)
@@ -64,11 +73,11 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
               })
 
             }
-          });
-        });
-      })
-      .then(() => setArrFinalOrder((arrOfOrders.flat())))
-      .then(() => getDataFromFinalOrder(arrFinalOrder))
+          })
+        })
+     
+      setArrFinalOrder((arrOfOrders.flat() ))
+    
   }
 
 
@@ -101,7 +110,7 @@ const FinalOrder = ({getDataFromFinalOrder}) => {
                 <input type="hidden" value={tableId} name="id"></input>
                 <span class="input-group-text">€</span>
                 <span class="input-group-text">
-                  {/* {parseInt(order[1]) * order[2]} */}
+                  {parseInt(order[1]) * order[2]}
                 </span>
               </div>
             </div>

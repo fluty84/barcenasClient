@@ -6,12 +6,12 @@ import React from "react";
 
 
 
-const ToPay = () => {
+const ToPay = ({totalData}) => {
 
 
     return (
         <>
-
+    
         </>
     )
 }
