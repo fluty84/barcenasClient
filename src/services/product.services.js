@@ -30,6 +30,7 @@ class ProductService {
   };
 
   createOrder = (order, tableId) => {
+    console.log(order)
     return this.api.post("/send-order", { order, tableId });
   };
 

@@ -89,7 +89,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
       <form
         className="foodList"
         method="POST"
-        action={`http://localhost:5005/api/update-total/${user._id}`}
+        action={isLoggedIn &&`http://localhost:5005/api/update-total/${user?._id}`}
       >
         {arrFinalOrder.map((order) => {
           return (
@@ -97,7 +97,8 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
               <div class="input-group">
                 <p>{order[0]}, {order[1]}, {order[2]}</p>
                 <span class="input-group-text">{order[0]}</span>
-                <input
+
+                {isLoggedIn ? <input
                   type="number"
                   class="form-control"
                   name={order[0]}
@@ -105,14 +106,26 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
                   defaultValue={order[1]}
                   min="0"
                   max="100"
-                  readOnly={isLoggedIn ? "false" : "true"}
                 />
+
+                  :
+
+                  <input
+                    type="number"
+                    class="form-control"
+                    name={order[0]}
+                    aria-label="Dollar amount (with dot and two decimal places)"
+                    defaultValue={order[1]}
+                    min="0"
+                    max="100"
+                    readOnly
+                  />}
+
                 <input type="hidden" value={tableId} name="id"></input>
                 <span class="input-group-text">€</span>
+
                 <span class="input-group-text">
-
                   {parseInt(order[1]) * order[2]}
-
                 </span>
               </div>
             </div>

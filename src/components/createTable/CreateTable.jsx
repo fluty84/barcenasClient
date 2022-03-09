@@ -89,7 +89,7 @@ const CreateTable = ({ handleClose }) => {
             >
               +
             </Fab>
-            <div>Current Number of tables: {value}</div>
+            <div>Current Number of tables: {table.numberOfTables}</div>
           </div>
 
           <Button variant="primary" type="submit">

@@ -11,10 +11,9 @@ import { useNavigate } from "react-router-dom";
 const socket = io.connect("http://localhost:3001");
 
 function Basket(props) {
-
+  
   const { isLoggedIn } = useContext(AuthContext);
   let { tableId, _id } = useParams();
-  const [isTrue, setIsTrue] = useState()
 
   const navigate = useNavigate()
 
@@ -24,6 +23,7 @@ function Basket(props) {
   } else {
     _id = props._id;
     tableId = props.tableId;
+
   }
 
   const joinRoom = () => {
@@ -33,9 +33,9 @@ function Basket(props) {
   socket.on("join_room", function (msg) {
     if (msg === "ACEPTADO") {
       if (!isLoggedIn) {
- setIsOrder(msg);
+      setIsOrder(msg);
       setIsOrder(true);
-      setIsTrue(true)
+      setIsSubmittedOrder(false)
       setIsAcceptedBtn(false);
       }
      
@@ -58,9 +58,7 @@ const navigateToClientHome = () => {
 }
 
   useEffect(() => {
-  if (isOrder) { alert(
-    "holalaaa"
-  )}
+  // if (isOrder) {navigate(`/${_id}/${tableId}/vista-cliente`)}
      
   
   }, [isOrder]);
@@ -72,6 +70,7 @@ const navigateToClientHome = () => {
 
   useEffect(() => {
     if (didMount.current) {
+
       setOrder([...orders, props.orderForm]);
     } else {
       didMount.current = true;
@@ -83,9 +82,15 @@ const navigateToClientHome = () => {
 
   useEffect(() => {
     if (didMount.current) {
-      productService
+      if(isSubmittedOrder) { 
+
+       console.log(orders, "-------------------------")
+        productService
         .createOrder(...orders, tableId)
-        .catch((err) => console.log(err));
+        .then(() =>  setOrder([]))
+        .then(() => console.log(orders))
+        .catch((err) => console.log(err));}
+     
     } else {
       didMount.current = true;
     }
@@ -167,6 +172,7 @@ const navigateToClientHome = () => {
     e.preventDefault();
     setIsAcceptedBtn(true);
     setIsSubmittedOrder(true);
+    setIsOrder(false)
     joinRoom();
   };
 
