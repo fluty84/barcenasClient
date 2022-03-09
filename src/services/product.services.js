@@ -30,9 +30,13 @@ class ProductService {
   };
 
   createOrder = (order, tableId) => {
-    console.log(order)
     return this.api.post("/send-order", { order, tableId });
   };
+
+    resetTable = (order, tableId) => {
+    return this.api.post("/reset-table", { order, tableId });
+  };
+
 
   displayOrder = (id) => {
     console.log("this display is: " + id);

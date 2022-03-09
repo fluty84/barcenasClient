@@ -2,7 +2,8 @@ import { Row, Col } from "react-bootstrap";
 import Basket from "../basket/Basket";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
+import {Link} from 'react-router-dom'
 import restaurantService from "../../services/restaurant.services";
 import { io } from "socket.io-client";
 
@@ -10,11 +11,12 @@ const socket = io.connect("http://localhost:3001");
 
 import("./TableDetails.css");
 
-const TableDetails = ({ order, handleClose, number }) => {
+const TableDetails = ({ order, handleClose, number, tableIdModal}) => {
   const value = useContext(AuthContext);
   const { _id } = value.user;
   const newArr = [];
   const tableId = [];
+
 
   order.currentOrder.forEach((x) => {
     Object.entries(x).forEach((item) => {
@@ -84,9 +86,9 @@ const TableDetails = ({ order, handleClose, number }) => {
             Imprimir QR
           </Button>
 
-          <Button>
-            <Link to={`/restaurante/${_id}/${tableId}/check-out`}>Go to Checkout</Link>
-          </Button>
+          <Link to={`/restaurante/${_id}/${tableIdModal}/check-out`}>
+            <Button >Go to Checkout</Button>
+          </Link>
 
         </Col>
       </Row>
@@ -94,3 +96,4 @@ const TableDetails = ({ order, handleClose, number }) => {
   );
 };
 export default TableDetails;
+

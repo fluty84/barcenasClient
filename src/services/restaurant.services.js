@@ -41,6 +41,8 @@ class RestaurantService {
     return this.api.get(`/table/${tableId}`);
   };
 
+  
+
   editFinalOrder = (order) => {
 
     console.log(order)

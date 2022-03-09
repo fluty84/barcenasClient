@@ -4,9 +4,11 @@ import restaurantService from "../../../services/restaurant.services";
 import { AuthContext } from "../../../context/auth.context";
 import { useContext } from "react";
 
-const FinalOrder = ({ getDataFromFinalOrder }) => {
+const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
 
-  const { id, tableId } = useParams();
+console.log(tableId, 'en Final Order')
+
+  const { id} = useParams();
 // ARRAY DE OBJETOS DE PRODUCTOS DE MENU: {name: cerveza, price: 1 ....}
   const [menuData, setMenuData] = useState([]); 
 // ARRAY DE OBJ: {Cerveza: "3", Oreja: "2"} CANTIDADES DE PEDIDO, VIENEN CON ID
@@ -81,6 +83,12 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
 
 
 
+  const resetTable = () => {
+    restaurantService
+    .resetTable()
+    
+  }
+
 
   return (
     <>
@@ -89,7 +97,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
       <form
         className="foodList"
         method="POST"
-        action={isLoggedIn &&`http://localhost:5005/api/update-total/${user?._id}`}
+        action={isLoggedIn ? `http://localhost:5005/api/update-total/${tableId}` : "foo"}
       >
         {arrFinalOrder.map((order) => {
           return (
@@ -98,7 +106,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
                 <p>{order[0]}, {order[1]}, {order[2]}</p>
                 <span class="input-group-text">{order[0]}</span>
 
-                {isLoggedIn ? <input
+                {isLoggedIn ? <><input
                   type="number"
                   class="form-control"
                   name={order[0]}
@@ -108,6 +116,8 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
                   max="100"
                 />
 
+             
+</>
                   :
 
                   <input
@@ -131,10 +141,13 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
             </div>
           );
         })}
-        {isLoggedIn ? <button>Acutualizar cuenta</button> : "boton del cliente"}
+        {isLoggedIn ? <><button>Actualizar cuenta</button>  <button  onClick>Resetear mesa</button> </>: "boton del cliente"}
       </form>
     </>
   );
 };
 
 export default FinalOrder;
+
+
+ <button >Resetear mesa</button>

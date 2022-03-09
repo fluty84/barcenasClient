@@ -17,6 +17,7 @@ const DayPanel = () => {
   const [tables, setTables] = useState();
   const [isOrder, setIsOrder] = useState(false);
   const [tableNumber, setTableNumber] = useState(0)
+  const [tableIdModal, setTableIdModal] = useState()
 
   const [open, setOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -66,6 +67,7 @@ const DayPanel = () => {
                 onClick={() => {
                   setModalData(table);
                   setTableNumber(idx + 1)
+                  setTableIdModal(table._id)
                   handleOpen();
                 }}
                 src={!table.currentOrder.length ? mesaOff : mesaOn}
@@ -91,6 +93,7 @@ const DayPanel = () => {
             order={modalData}
             number={tableNumber}
             handleClose={handleClose}
+            tableIdModal={tableIdModal}
           ></TableDetails>
         </Box>
       </Modal>

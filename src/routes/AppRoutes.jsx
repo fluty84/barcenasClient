@@ -59,7 +59,7 @@ const AppRoutes = () => {
         />
 
         <Route //resumen antes de pago
-          path="/:id/:tableId/check-out" 
+          path="restaurante/:id/:tableId/check-out" 
           element={<CheckOut/>}
         />
 
@@ -67,6 +67,8 @@ const AppRoutes = () => {
           path="/restaurante/log-in" 
           element={<LoginPage/>}
         />
+
+
 
 
       </Routes>
