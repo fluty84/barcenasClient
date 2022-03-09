@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/auth.context";
 import { useParams } from "react-router-dom";
 import productService from "../../services/product.services";
 import restaurantService from "../../services/restaurant.services";
-import { Form} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import io from "socket.io-client";
 import { Button } from "@mui/material";
 
@@ -45,9 +45,9 @@ function Basket(props) {
   const didMount = useRef(false);
 
   useEffect(() => {
-    productService.displayOrder(tableId).then((response) => {
-      setOrder(response.data.result.currentOrder);
-    });
+    productService
+      .displayOrder(tableId)
+      .then((response) => setOrder(response.data.result.currentOrder))
   }, []);
 
   useEffect(() => {

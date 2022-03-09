@@ -6,11 +6,15 @@ import { useContext } from "react";
 
 const FinalOrder = ({ getDataFromFinalOrder }) => {
 
-  const { tableId } = useParams();
-  const [finalOrderData, setFinalOrderData] = useState([]);
-  const [orderDataNoIds, setOrderDataNoIds] = useState([]);
-  const [arrFinalOrder, setArrFinalOrder] = useState([]);
-  const [menuData, setMenuData] = useState([]);
+  const { id, tableId } = useParams();
+// ARRAY DE OBJETOS DE PRODUCTOS DE MENU: {name: cerveza, price: 1 ....}
+  const [menuData, setMenuData] = useState([]); 
+// ARRAY DE OBJ: {Cerveza: "3", Oreja: "2"} CANTIDADES DE PEDIDO, VIENEN CON ID
+  const [finalOrderData, setFinalOrderData] = useState([]); 
+// ARRAY DE OBJ IGUAL QUE FINALORDERDATA PERO SIN IDS
+  const [orderDataNoIds, setOrderDataNoIds] = useState([]); 
+// ARRAY DE ARRAYS [Cerveza, cantidad, precio]
+  const [arrFinalOrder, setArrFinalOrder] = useState([]); 
 
   const { isLoggedIn } = useContext(AuthContext);
   useEffect(() => {
@@ -49,7 +53,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
   const objToArr = (arrOfObjects) => {
     const arrOfOrders = [];
 
-    arrOfObjects.forEach((elm, index) => {
+    arrOfObjects.forEach((elm, idx) => {
 
       arrOfOrders.push(Object.entries(elm))
 
@@ -58,15 +62,13 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
 
         for (const property in menuItem) {
 
-          arrOfOrders[0].forEach((item, index) => {
+          arrOfOrders[idx].forEach((item, index) => {
 
-            if (menuItem.name === arrOfOrders[0][index][0]) {
+            if (menuItem.name === arrOfOrders[idx][index][0]) {
 
-              console.log(menuItem.name, arrOfOrders[0][index][0])
 
-              arrOfOrders[0][index].length < 3 &&
-
-                arrOfOrders[0][index].push(menuItem.price)
+              arrOfOrders[idx][index].length < 3 &&
+                arrOfOrders[idx][index].push(menuItem.price)
             }
           })
         }
@@ -108,7 +110,9 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
                 <input type="hidden" value={tableId} name="id"></input>
                 <span class="input-group-text">€</span>
                 <span class="input-group-text">
+
                   {parseInt(order[1]) * order[2]}
+
                 </span>
               </div>
             </div>

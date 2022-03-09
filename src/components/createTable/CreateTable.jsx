@@ -2,13 +2,13 @@ import { useState, useContext, useEffect } from "react"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import { Fab } from "@mui/material"
-import { AuthContext } from "../../context/auth.context" 
+import { AuthContext } from "../../context/auth.context"
 import restaurantService from "../../services/restaurant.services"
 import("./CreateTable.css")
 
 const CreateTable = ({ handleClose }) => {
   const close = handleClose
-  const value = useContext(AuthContext) 
+  const value = useContext(AuthContext)
 
   const [table, setTable] = useState({
     numberOfTables: 1,
@@ -51,7 +51,7 @@ const CreateTable = ({ handleClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    for (let i = 0 ; i < table.numberOfTables ; i++) {
+    for (let i = 0; i < table.numberOfTables; i++) {
       restaurantService
         .createTable()
         .then(() => close())

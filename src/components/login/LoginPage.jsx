@@ -19,6 +19,7 @@ const LoginPage = () => {
   const navigate = useNavigate()
 
   const { restaurant, password } = loginForm
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target
 
