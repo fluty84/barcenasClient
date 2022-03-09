@@ -36,7 +36,6 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
   }, []);
 
   useEffect(() => {
-    console.log("ejecutado")
     getDataFromFinalOrder(arrFinalOrder)
 
   }, [arrFinalOrder])
@@ -90,7 +89,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
       <form
         className="foodList"
         method="POST"
-        action="http://localhost:5005/api/update-total"
+        action={`http://localhost:5005/api/update-total/${user._id}`}
       >
         {arrFinalOrder.map((order) => {
           return (
@@ -106,6 +105,7 @@ const FinalOrder = ({ getDataFromFinalOrder }) => {
                   defaultValue={order[1]}
                   min="0"
                   max="100"
+                  readOnly={isLoggedIn ? "false" : "true"}
                 />
                 <input type="hidden" value={tableId} name="id"></input>
                 <span class="input-group-text">€</span>

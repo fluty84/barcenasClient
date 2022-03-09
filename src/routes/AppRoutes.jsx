@@ -9,6 +9,8 @@ import QrPrint from "../pages/qrPrint/QrPrint";
 import LandingCustomer from "../pages/CustomerPages/landingCostumer/Landing-Costumer";
 import CheckOut from "../pages/checkOut/CheckOut";
 import LoginPage from "../components/login/LoginPage";
+import ClientPanel from "../pages/CustomerPages/clientPanel/ClientPanel";
+
 
 const AppRoutes = () => {
   return (
@@ -41,9 +43,14 @@ const AppRoutes = () => {
           element={<DayPanel />}
         />
 
-        <Route //landing cliente cambiar component
+        <Route //landing cliente 
           path="/:_id/:tableId/vista-cliente" 
           element={<LandingCustomer />}
+        />
+
+        <Route //Panel cliente
+          path="/:_id/:tableId/panel-cliente"
+          element={<ClientPanel />}
         />
 
         <Route // impresion de QR

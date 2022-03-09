@@ -6,7 +6,6 @@ const ToPay = ({totalData}) => {
         return elm[1]*elm[2]
     })
     
-    console.log(totalProduct)
 
    const totalSum = totalProduct.reduce((prev, curr) => prev+curr, 0)
 

@@ -37,7 +37,7 @@ const RegisterCustomer = () => {
         authService
             .tableLogin(customerData, tableId)
             .then(() => {
-               navigate('/')
+                navigate(`/${_id}/${tableId}/panel-cliente`, { replace: true })
             })
         
     }

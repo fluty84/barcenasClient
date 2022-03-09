@@ -34,7 +34,7 @@ const LoginCustomer = ({ tablePassword }) => {
         e.preventDefault()
 
         if (customerData.password === tablePassword) {
-            navigate(`/${_id}/${tableId}/customer-order`, { replace: true })
+            navigate(`/${_id}/${tableId}/panel-cliente`, { replace: true })
         }
     }
 

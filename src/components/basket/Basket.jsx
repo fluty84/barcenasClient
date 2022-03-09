@@ -6,14 +6,19 @@ import restaurantService from "../../services/restaurant.services";
 import { Form } from "react-bootstrap";
 import io from "socket.io-client";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const socket = io.connect("http://localhost:3001");
 
 function Basket(props) {
 
   const { isLoggedIn } = useContext(AuthContext);
-
   let { tableId, _id } = useParams();
+  const [isTrue, setIsTrue] = useState()
+
+  const navigate = useNavigate()
+
+
 
   if (_id) {
   } else {
@@ -27,9 +32,13 @@ function Basket(props) {
 
   socket.on("join_room", function (msg) {
     if (msg === "ACEPTADO") {
-      setIsOrder(msg);
+      if (!isLoggedIn) {
+ setIsOrder(msg);
       setIsOrder(true);
+      setIsTrue(true)
       setIsAcceptedBtn(false);
+      }
+     
     }
   });
 
@@ -40,10 +49,21 @@ function Basket(props) {
   const [isSubmittedOrder, setIsSubmittedOrder] = useState(false);
   const [isAcceptedBtn, setIsAcceptedBtn] = useState(false);
   const [qtyProductsArr, setQtyProductsArr] = useState([])
-  const [orderForm, setOrderForm] = useState(props.orderForm);
 
   const didMount = useRef(false);
 
+
+const navigateToClientHome = () => {
+ 
+}
+
+  useEffect(() => {
+  if (isOrder) { alert(
+    "holalaaa"
+  )}
+     
+  
+  }, [isOrder]);
   useEffect(() => {
     productService
       .displayOrder(tableId)
