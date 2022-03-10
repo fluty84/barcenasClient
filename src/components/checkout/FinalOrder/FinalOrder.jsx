@@ -3,10 +3,15 @@ import { useParams } from "react-router-dom";
 import restaurantService from "../../../services/restaurant.services";
 import { AuthContext } from "../../../context/auth.context";
 import { useContext } from "react";
+import productService from "../../../services/product.services";
+import { Button } from "react-bootstrap";
+import { useNavigate } from 'react-router'
+
 
 const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
 
-console.log(tableId, 'en Final Order')
+   let navigate = useNavigate();
+
 
   const { id} = useParams();
 // ARRAY DE OBJETOS DE PRODUCTOS DE MENU: {name: cerveza, price: 1 ....}
@@ -84,8 +89,10 @@ console.log(tableId, 'en Final Order')
 
 
   const resetTable = () => {
-    restaurantService
-    .resetTable()
+    productService
+    .resetTable(tableId)
+    .then((x) =>   navigate("/panel", { replace: true }))
+    .catch(e => console.log(e))
     
   }
 
@@ -96,9 +103,12 @@ console.log(tableId, 'en Final Order')
 
       <form
         className="foodList"
+        id="formCheckOut"
         method="POST"
         action={isLoggedIn ? `http://localhost:5005/api/update-total/${tableId}` : "foo"}
       >
+
+      
         {arrFinalOrder.map((order) => {
           return (
             <div class="mb-3">
@@ -141,13 +151,12 @@ console.log(tableId, 'en Final Order')
             </div>
           );
         })}
-        {isLoggedIn ? <><button>Actualizar cuenta</button>  <button  onClick>Resetear mesa</button> </>: "boton del cliente"}
+        {isLoggedIn ? <><button href="#">Actualizar cuenta</button> </>: "boton del cliente"}
       </form>
+
+       <Button  onClick={resetTable}>Resetear1 mesa</Button> 
     </>
   );
 };
 
 export default FinalOrder;
-
-
- <button >Resetear mesa</button>
