@@ -15,7 +15,9 @@ const LandingCustomer = () => {
 
 
     useEffect(() => {
-        getTable()
+        if (isTable) { getTable()
+}
+       
        
     }, [isTable])
 

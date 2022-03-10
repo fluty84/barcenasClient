@@ -83,7 +83,7 @@ const uploadProductImage = e => {
                 <Form.Group>
                 <Form.Label>Nombre del Producto</Form.Label>
                 
-                <Form.Control className='textField'
+                    <Form.Control className='textField' id="input"
                     required
                     //className="outlined-required"
                     label="Nombre del producto"
@@ -95,7 +95,7 @@ const uploadProductImage = e => {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label> Precio (€) </Form.Label>
-                <Form.Control className='textField'
+                <Form.Control className='textField' id="input"
                     required
                     //className="outlined-required"
                     label="Precio"
@@ -117,7 +117,9 @@ const uploadProductImage = e => {
                     onChange={uploadProductImage}
                     />
                 </Form.Group>
+                <div id="selectors">
                 <Form.Group>
+                    
                 <Form.Label id="categorySelect">Categoria</Form.Label>
                 <Form.Select
                     size='small'
@@ -127,9 +129,11 @@ const uploadProductImage = e => {
                     value={category}
                     label="category"
                     onChange={handleInputChange}
-                >
+                    >
+              
                     <option value={'comida'}>Comida</option>
-                    <option value={'bebida'}>Bebida</option>
+                            <option value={'bebida'}>Bebida</option>
+                     
                 </Form.Select>
                 </Form.Group>
         <Form.Group>
@@ -150,8 +154,8 @@ const uploadProductImage = e => {
 
                 </Form.Select>
                 </Form.Group>
-
-                <Button variant="outlined" size="small" type='submit' disabled={loadingImage}  >{loadingImage ? 'Cargando imagen' : 'Añadir producto'}
+                </div>
+                <Button variant="outlined" size="small" className= "btn-primary" type='submit' disabled={loadingImage}  >{loadingImage ? 'Cargando imagen' : 'Añadir producto'}
 
                 </Button>
             </Form>

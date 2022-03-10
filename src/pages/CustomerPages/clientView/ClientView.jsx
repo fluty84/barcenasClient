@@ -42,7 +42,7 @@ const ClientView = () => {
     setOrderForm({})
     //setTicket({})
     setIsTicketModified(true)
-    console.log('ahora order es ', orderForm)
+  
   }
 
   const toggleTicket = () =>{

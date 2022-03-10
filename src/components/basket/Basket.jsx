@@ -41,7 +41,6 @@ function Basket(props) {
   socket.on("join_room", function (msg) {
     if (msg === "ACEPTADO") {
       if (!isLoggedIn) {
-        console.log("jejehehehehehehhe")
         setIsOrder(msg);
         setIsOrder(true);
         setIsSubmittedOrder(false)
@@ -51,15 +50,8 @@ function Basket(props) {
     }
   });
 
-
   const didMount = useRef(false);
-
-
-  // useEffect(() => {
-  // // if (isOrder) {navigate(`/${_id}/${tableId}/vista-cliente`)}
-
-
-  // }, [isOrder]);
+ 
   useEffect(() => {
     productService
       .displayOrder(tableId)
@@ -82,7 +74,6 @@ function Basket(props) {
     if (didMount.current) {
       if (isSubmittedOrder) {
 
-        console.log(orders, "-------------------------")
         productService
           .createOrder(...orders, tableId)
           .then(() => setOrder([]))
