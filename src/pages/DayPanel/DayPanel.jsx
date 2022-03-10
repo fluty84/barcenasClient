@@ -9,7 +9,7 @@ import io from "socket.io-client";
 import { Box, Button, Modal, Typography } from "@mui/material";
 
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect(process.env.REACT_APP_API_URL || "http://localhost:3001");
 
 
 import("./DayPanel.css");
@@ -99,7 +99,7 @@ const DayPanel = () => {
           ></TableDetails>
         </Box>
       </Modal>
-      
+
       <Button href="/" className="btn-primary btn-back">Volver</Button>
     </>
   );
