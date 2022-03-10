@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import restaurantService from "../../services/restaurant.services";
 import { io } from "socket.io-client";
 
-const socket = io.connect(process.env.REACT_APP_API_URL || "http://localhost:3001");
+const socket = io.connect("https://waiterhack.netlify.app/");
 
 
 import("./TableDetails.css");

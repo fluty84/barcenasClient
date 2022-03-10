@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const socket = io.connect(process.env.REACT_APP_API_URL || "http://localhost:3001");
+const socket = io.connect("https://waiterhack.netlify.app/");
 
 function Basket(props) {
 
