@@ -6,9 +6,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-image: url("./images/44064.jpg");
+  font-family: 'Homemade Apple', cursive;
+font-family: 'Pangolin', cursive;
+color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ .btn-primary {
+  border: solid white;
+  color: white;
+  border-radius: 10px;
+margin-top: 10px;
 }
+
+
+.button-primary:hover {background-color: 
+  #3e8e41}
+
+

@@ -1,11 +1,11 @@
 import { BottomNavigation, BottomNavigationAction} from "@mui/material";
 import { useState } from "react";
+import { ReactComponent as Basket } from './basket.svg';
+import { ReactComponent as Credit } from './credit-card.svg';
+import { ReactComponent as Egg } from './egg-fried.svg';
+import "./NavbarClient.css"
 
-import Basket from "./basket.svg"
-import Egg from "./egg-fried.svg"
-import Credit from "./credit-card.svg"
-
-
+ 
 
 const NavbarClient = () => {
  
@@ -21,7 +21,7 @@ return (
         showLabels
         
     >
-        <BottomNavigationAction label="Pago" icon={<Credit />} />
+        <BottomNavigationAction label="Pago" icon={  <Credit />} />
         <BottomNavigationAction label="Menu" icon={<Egg />} />
         <BottomNavigationAction label="Cesta" icon={<Basket />} />
     </BottomNavigation> 

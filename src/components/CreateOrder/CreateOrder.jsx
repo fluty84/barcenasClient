@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import restaurantService from "../../services/restaurant.services"
 import { Form, Button } from "react-bootstrap"
 import { useParams } from "react-router-dom"
+import "./CreateOrder.css"
 
 const CreateOrder = (props) => {
 
@@ -61,8 +62,10 @@ const CreateOrder = (props) => {
         {products.map((product) => {
           return (
             <li key={product._id}>
-              <p>{product.name}</p> {product.price}
-              <input
+              <label htmlFor="buttonn">     
+              <p>{product.name} {product.price}
+                     <input
+            id="buttonn"
                 type="number"
                 name={product.name}
                 value={orderForm[product.name]}
@@ -72,11 +75,12 @@ const CreateOrder = (props) => {
                 type="hidden"
                 name="id"
                 value="621f984c745ab17740b49361" //
-              ></input>
+              ></input>  </p> </label>
+            
             </li>
           )
         })}
-        <Button type="submit">Enviar orden</Button>
+        <Button type="submit" size="sm" variant="primary" className="shadow p-3">Enviar orden</Button>
       </Form>
     </>
   )

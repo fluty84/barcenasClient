@@ -1,0 +1,56 @@
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    border: solid white;
+    width: 33%;
+     list-style-type: none;
+   border-radius: 10px;
+     display: flex;
+       align-items: center
+
+}
+
+li p {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+  
+}
+
+li p input {
+   
+    width:20px;
+    border: none;
+    background-color: transparent;
+    color: white
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: transparent;
+    border-color: white;
+}
+
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: transparent !important;
+    border-color: white !important;
+    box-shadow: white !important;
+}
+
+.btn-primary:focus {
+    border-color: white ;
+     box-shadow: 0 5px 5px rgba(228, 217, 214) !important;
+}
+
