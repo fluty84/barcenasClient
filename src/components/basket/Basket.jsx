@@ -8,6 +8,8 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+import './Basket.css'
+
 const socket = io.connect("https://waiterhack.netlify.app/");
 
 function Basket(props) {
@@ -34,24 +36,58 @@ function Basket(props) {
   const [isAcceptedBtn, setIsAcceptedBtn] = useState(false);
   const [qtyProductsArr, setQtyProductsArr] = useState([])
 
-  const joinRoom = () => {
-    socket.emit("join_room", orders);
-  };
+  // const joinRoom = () => {
+  //   socket.emit("join_room", orders);
+  // };
 
-  socket.on("join_room", function (msg) {
-    if (msg === "ACEPTADO") {
-      if (!isLoggedIn) {
-        setIsOrder(msg);
-        setIsOrder(true);
-        setIsSubmittedOrder(false)
-        setIsAcceptedBtn(true);
-      }
+  // socket.on("join_room", function (msg) {
+  //   if (msg === "ACEPTADO") {
+  //     if (!isLoggedIn) {
+        
+  //       setIsOrder(msg);
+  //       setIsOrder(true);
+  //       setIsSubmittedOrder(false)
+  //       setIsAcceptedBtn(true);
+  //     }
 
-    }
-  });
+  //   }
+  // });
+
+  useEffect(() => {  //solo sin socket
+  if(isAcceptedBtn) { const refresh = setInterval(() => {
+
+      productService
+        .displayOrder(tableId)
+        .then((response) => {
+          if (!response.data.result.currentOrder.length) {
+            
+            setIsOrder(true);
+            setIsSubmittedOrder(false)
+            setIsAcceptedBtn(true);   
+
+            setTimeout(() => {
+              navigate(`/${_id}/${tableId}/panel-cliente`)
+            }, 5000);
+          }
+        
+        })
+    }, 1000)
+
+   
+
+    return () => clearInterval(refresh)
+  }
+  }, [orders, changes])
+
+  useEffect(() => { ///Renderizado general
+    filter(orders);
+    calculateTotal();
+    qtySum(cuenta) 
+  }, [orders, changes]);
 
   const didMount = useRef(false);
- 
+
+
   useEffect(() => {
     productService
       .displayOrder(tableId)
@@ -86,11 +122,9 @@ function Basket(props) {
     }
   }, [isSubmittedOrder]);
 
-  useEffect(() => { ///Renderizado general
-    filter(orders);
-    calculateTotal();
-    qtySum(cuenta)
-  }, [orders, changes]);
+ 
+
+  
 
 
   useEffect(() => {
@@ -163,7 +197,7 @@ function Basket(props) {
     setIsAcceptedBtn(true);
     setIsSubmittedOrder(true);
 
-    joinRoom();
+    //joinRoom();
   };
 
 
@@ -219,17 +253,17 @@ function Basket(props) {
                 aria-hidden="true"
               ></span>
               <span className="sr-only">
-                {isOrder ? (
+                { isOrder ? (
                   <span>Orden Lista</span>
                 ) : (
                   <span>Esperando confirmación</span>
-                )}
+                )} 
               </span>
             </button>
           )}
         </Form>
       )}
-      <Button onClick={props.clearOrder}>Modificar Pedido</Button>
+      {!isLoggedIn && <Button className="btn-primary" onClick={props.clearOrder}>Modificar Pedido</Button>}
 
 
     </>

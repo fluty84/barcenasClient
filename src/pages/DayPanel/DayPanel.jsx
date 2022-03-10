@@ -36,8 +36,16 @@ const DayPanel = () => {
     loadTables();
   }, [user]);
 
+  useEffect(() => {
+    const refresh = setInterval(()=> {
+      loadTables()}, 1000) 
+    
+  return () => clearInterval(refresh)
+  }, [user])
+
 
   const didMount = useRef(false);
+
 
   useEffect(() => {
     if (didMount.current) {
@@ -62,7 +70,7 @@ const DayPanel = () => {
         {tables?.map((table, idx) => {
           return (
             <Col md={3} className="mesa" key={idx}>
-              <p>Mesa número {idx + 1}</p>
+              <h3 className="h3-white">Mesa número {idx + 1}</h3>
               <input
                 type="image"
                 alt="mesa"

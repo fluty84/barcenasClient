@@ -15,8 +15,10 @@ const Qr = () => {
     return (
         <>
 
-            <QRCode className='qr' value={`https://waiterhack.netlify.app/${user._id}/${tableId}/vista-cliente`}></QRCode>
-            <Button onClick={() => window.print()}>Mesa {number}</Button>
+            <div className='flexDiv'>
+                <QRCode className='qr' value={`https://waiterhack.netlify.app/${user._id}/${tableId}/vista-cliente`}></QRCode>
+                <Button className='btn-primary block' onClick={() => window.print()}>Mesa {number}</Button>
+            </div>
         </>
 
     )

@@ -9,7 +9,7 @@ body {
   background-image: url("./images/44064.jpg");
   font-family: 'Homemade Apple', cursive;
   font-family: 'Pangolin', cursive;
-color: white;
+  color: white
 }
 
  .btn-primary {
@@ -21,6 +21,10 @@ color: white;
 
 h1{
   font-family: 'Homemade Apple';
+}
+
+p {
+  color: white;
 }
 
 
