@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect();
 
 function Basket(props) {
   
@@ -52,10 +52,6 @@ function Basket(props) {
 
   const didMount = useRef(false);
 
-
-const navigateToClientHome = () => {
- 
-}
 
   useEffect(() => {
   // if (isOrder) {navigate(`/${_id}/${tableId}/vista-cliente`)}

@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import restaurantService from "../../services/restaurant.services";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect();
 
 import("./TableDetails.css");
 

@@ -5,18 +5,18 @@ import { useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
-import ('./Qr.css')
+import('./Qr.css')
 
 const Qr = () => {
 
-    const {tableId, number} = useParams()
+    const { tableId, number } = useParams()
     const { user } = useContext(AuthContext);
 
     return (
         <>
 
-        <QRCode className='qr' value={`https://waiterhack.herokuapp.com/${user._id}/${tableId}/vista-cliente`}></QRCode>
-        <Button onClick={()=>window.print()}>Mesa {number}</Button>
+            <QRCode className='qr' value={`https://waiterhack.netlify.app/${user._id}/${tableId}/vista-cliente`}></QRCode>
+            <Button onClick={() => window.print()}>Mesa {number}</Button>
         </>
 
     )

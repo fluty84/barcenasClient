@@ -10,6 +10,7 @@ import LandingCustomer from "../pages/CustomerPages/landingCostumer/Landing-Cost
 import CheckOut from "../pages/checkOut/CheckOut";
 import LoginPage from "../components/login/LoginPage";
 import ClientPanel from "../pages/CustomerPages/clientPanel/ClientPanel";
+import NavbarClient from "../components/navbarClient/NavbarClient";
 
 
 const AppRoutes = () => {
