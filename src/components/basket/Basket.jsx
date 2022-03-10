@@ -240,7 +240,7 @@ function Basket(props) {
           )}
         </Form>
       )}
-      <Button className="btn-primary" onClick={props.clearOrder}>Modificar Pedido</Button>
+      {!isLoggedIn && <Button className="btn-primary" onClick={props.clearOrder}>Modificar Pedido</Button>}
 
 
     </>

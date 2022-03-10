@@ -175,7 +175,7 @@ const FinalOrder = (props) => {
             </div>
           );
         })}
-        {isLoggedIn ? <><button href="#">Actualizar cuenta</button> </> : <Button className="btn-primary" href="/payment-gateway">Proceder a pago</Button>}
+        {isLoggedIn ? <><button type="submit" href="#">Actualizar cuenta</button> </> : <Button className="btn-primary" href="/payment-gateway">Proceder a pago</Button>}
       </form>
 
       {isLoggedIn && <Button onClick={resetTable}>Resetear mesa</Button>}

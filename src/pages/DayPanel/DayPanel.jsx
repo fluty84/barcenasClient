@@ -36,8 +36,16 @@ const DayPanel = () => {
     loadTables();
   }, [user]);
 
+  useEffect(() => {
+    const refresh = setInterval(()=> {
+      loadTables()}, 1000) 
+    
+  return () => clearInterval(refresh)
+  }, [user])
+
 
   const didMount = useRef(false);
+
 
   useEffect(() => {
     if (didMount.current) {
