@@ -1,6 +1,5 @@
 .mesa {
     margin-top: 50px;
-    filter: invert(100%);
     
 }
 .mesa input {
@@ -15,9 +14,6 @@
    
 }
 
-.h3-white{
-    color: white!important;
-}
 
 .mesa .h3-white {
     color: white

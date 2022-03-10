@@ -8,6 +8,8 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+import './Basket.css'
+
 const socket = io.connect("https://waiterhack.netlify.app/");
 
 function Basket(props) {
@@ -228,17 +230,17 @@ function Basket(props) {
                 aria-hidden="true"
               ></span>
               <span className="sr-only">
-                {isOrder ? (
+                { isOrder ? (
                   <span>Orden Lista</span>
                 ) : (
                   <span>Esperando confirmación</span>
-                )}
+                )} 
               </span>
             </button>
           )}
         </Form>
       )}
-      <Button onClick={props.clearOrder}>Modificar Pedido</Button>
+      <Button className="btn-primary" onClick={props.clearOrder}>Modificar Pedido</Button>
 
 
     </>

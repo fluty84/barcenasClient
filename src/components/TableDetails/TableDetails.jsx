@@ -54,7 +54,7 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
 
   return (
     <div className="order">
-      <h1>Table {number} Details</h1>
+      <h1>Mesa {number} </h1>
       <Row>
         <Col md={6}>
           {newArr.map((item) => {
@@ -75,22 +75,21 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
 
           {order.currentOrder.length ? (
             <>
-              <Button onClick={accept}>Aceptar pedido</Button>
-              <Button onClick={cancel}>Cancelar Pedido</Button>{" "}
+              <Button className="btn-primary" onClick={accept}>Aceptar pedido</Button>
+              <Button className="btn-primary" onClick={cancel}>Cancelar Pedido</Button>{" "}
             </>
           ) : null}
 
           <Button
+            className="btn-primary"
             href={`/restaurante/${_id}/panel/${order._id}/qr/${number}`}
             target="_blank"
           >
             Imprimir QR
           </Button>
 
-          <Link to={`/restaurante/${_id}/${tableIdModal}/check-out`}>
-            <Button >Go to Checkout</Button>
-          </Link>
-
+            <Button className="btn-primary" href="`/restaurante/${_id}/${tableIdModal}/check-out`">Go to Checkout</Button>
+       
         </Col>
       </Row>
     </div>
