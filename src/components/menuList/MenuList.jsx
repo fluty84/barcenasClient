@@ -1,3 +1,4 @@
+import { hexToRgb } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import restaurantService from "../../services/restaurant.services";
@@ -31,8 +32,10 @@ const MenuList = ({ newProduct }) => {
         {products.map((product) => {
           return (
             <li key={product._id}>
-              <p>{product.name}</p> {product.price}
+              <p>{product.name} {product.price}</p> 
+              <hr></hr>
             </li>
+            
           );
         })}
       </ul>

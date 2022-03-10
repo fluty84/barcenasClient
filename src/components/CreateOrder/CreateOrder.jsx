@@ -68,7 +68,7 @@ const CreateOrder = (props) => {
 
        
 
-              <li key={product._id}>
+              <li className="create-order-list" key={product._id}>
                 <label htmlFor={product._id}>
                 
                     <p>{product.name}   {product.price}€
