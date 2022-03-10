@@ -8,16 +8,26 @@ body {
   text-align: center;
   background-image: url("./images/44064.jpg");
   font-family: 'Homemade Apple', cursive;
-font-family: 'Pangolin', cursive;
+  font-family: 'Pangolin', cursive;
 color: white;
 }
 
  .btn-primary {
   border: solid white;
   color: white;
+  border-radius: 10px;
   margin-top: 10px;
 }
 
+h1{
+  font-family: 'Homemade Apple';
+}
 
 
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    
+    color: inherit;
+    font-family: "Pangolin"!important;
+    font-weight: 800 !important;
+}
 
