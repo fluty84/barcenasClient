@@ -33,8 +33,9 @@ class ProductService {
     return this.api.post("/send-order", { order, tableId });
   };
 
-    resetTable = (order, tableId) => {
-    return this.api.post("/reset-table", { order, tableId });
+    resetTable = (tableId) => {
+      console.log(tableId)
+    return this.api.post("/reset-table", {tableId });
   };
 
 
