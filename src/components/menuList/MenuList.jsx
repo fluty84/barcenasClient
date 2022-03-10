@@ -11,7 +11,7 @@ const MenuList = ({ newProduct }) => {
 
   useEffect(() => {
     loadMenu();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     loadMenu();

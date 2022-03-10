@@ -14,3 +14,11 @@
     left: 100px;
    
 }
+
+.h3-white{
+    color: white!important;
+}
+
+.mesa .h3-white {
+    color: white
+}
