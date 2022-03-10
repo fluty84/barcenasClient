@@ -6,7 +6,8 @@ import mesaOn from "./mesa-on.png";
 import mesaOff from "./mesa-off.png";
 import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
+
 
 const socket = io.connect("http://localhost:3001");
 
@@ -98,6 +99,7 @@ const DayPanel = () => {
           ></TableDetails>
         </Box>
       </Modal>
+      <Button href="/" className="btn-primary btn-back">Volver</Button>
     </>
   );
 };

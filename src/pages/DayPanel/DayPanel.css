@@ -6,3 +6,10 @@
     vertical-align: middle;
     max-width: 200px;
 }
+
+.btn-back {
+    position: absolute;
+    bottom: 80px;
+    left: 100px;
+   
+}

@@ -64,7 +64,7 @@ const CreateTable = ({ handleClose }) => {
       <div id="createTableContainer">
         <Form id="createTableForm" onSubmit={handleSubmit}>
           <div>
-            <p> Indica el número de Mesas </p>
+            <h2> Indica el número de Mesas </h2>
             <Fab
               color="primary"
               aria-label="add"
@@ -75,6 +75,7 @@ const CreateTable = ({ handleClose }) => {
               -
             </Fab>
             <input
+            className="newTableInput"
               type="number"
               onChange={handleChange}
               name="value"
@@ -89,11 +90,11 @@ const CreateTable = ({ handleClose }) => {
             >
               +
             </Fab>
-            <div>Current Number of tables: {table.numberOfTables}</div>
+           
           </div>
 
           <Button variant="primary" type="submit">
-            Submit
+            Enviar
           </Button>
         </Form>
       </div>
