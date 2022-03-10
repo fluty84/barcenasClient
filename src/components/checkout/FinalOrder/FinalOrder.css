@@ -1,3 +1,8 @@
 #formCheckOut {
-    width: 33%
+    /* width: 33% */
 }
+
+#productSpan {
+    width:100px;
+}
+

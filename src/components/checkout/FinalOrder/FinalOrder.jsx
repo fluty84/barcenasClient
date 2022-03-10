@@ -6,22 +6,43 @@ import { useContext } from "react";
 import productService from "../../../services/product.services";
 import { Button } from "react-bootstrap";
 import { useNavigate } from 'react-router'
+import "./FinalOrder.css"
+
+const FinalOrder = (props) => {
+
+  let navigate = useNavigate();
 
 
-const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
 
-   let navigate = useNavigate();
+  let { tableId, _id } = useParams();
 
 
-  const { id} = useParams();
-// ARRAY DE OBJETOS DE PRODUCTOS DE MENU: {name: cerveza, price: 1 ....}
-  const [menuData, setMenuData] = useState([]); 
-// ARRAY DE OBJ: {Cerveza: "3", Oreja: "2"} CANTIDADES DE PEDIDO, VIENEN CON ID
-  const [finalOrderData, setFinalOrderData] = useState([]); 
-// ARRAY DE OBJ IGUAL QUE FINALORDERDATA PERO SIN IDS
-  const [orderDataNoIds, setOrderDataNoIds] = useState([]); 
-// ARRAY DE ARRAYS [Cerveza, cantidad, precio]
-  const [arrFinalOrder, setArrFinalOrder] = useState([]); 
+  if (tableId) {
+  } else {
+    _id = props._id;
+    tableId = props.tableId;
+
+  }
+
+
+  // ARRAY DE OBJETOS DE PRODUCTOS DE MENU: {name: cerveza, price: 1 ....}
+  const [menuData, setMenuData] = useState([]);
+  // ARRAY DE OBJ: {Cerveza: "3", Oreja: "2"} CANTIDADES DE PEDIDO, VIENEN CON ID
+  const [finalOrderData, setFinalOrderData] = useState([]);
+  // ARRAY DE OBJ IGUAL QUE FINALORDERDATA PERO SIN IDS
+  const [orderDataNoIds, setOrderDataNoIds] = useState([]);
+  // ARRAY DE ARRAYS [Cerveza, cantidad, precio]
+  const [arrFinalOrder, setArrFinalOrder] = useState([]);
+
+
+  // useEffect(() => {
+  //   if (value.user != null) {
+  //     setTable({
+  //       ...table,
+  //       restaurantId: value.user._id,
+  //     })
+  //   }
+  // }, [value.user])
 
   const { isLoggedIn } = useContext(AuthContext);
   useEffect(() => {
@@ -33,9 +54,11 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
   }, [finalOrderData]);
 
   useEffect(() => {
+    console.log(tableId, "table");
     restaurantService
       .checkTable(tableId)
       .then((res) => {
+        console.log(res)
         setMenuData(res.data.restaurantId[0].menu)
         setFinalOrderData(res.data.total.flat())
       })
@@ -43,7 +66,7 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
   }, []);
 
   useEffect(() => {
-    getDataFromFinalOrder(arrFinalOrder)
+    props.getDataFromFinalOrder(arrFinalOrder)
 
   }, [arrFinalOrder])
 
@@ -82,7 +105,7 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
     })
 
     setArrFinalOrder((arrOfOrders.flat()))
-    getDataFromFinalOrder((arrOfOrders.flat()))
+    props.getDataFromFinalOrder((arrOfOrders.flat()))
 
   }
 
@@ -90,10 +113,10 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
 
   const resetTable = () => {
     productService
-    .resetTable(tableId)
-    .then((x) =>   navigate("/panel", { replace: true }))
-    .catch(e => console.log(e))
-    
+      .resetTable(tableId)
+      .then((x) => navigate("/panel", { replace: true }))
+      .catch(e => console.log(e))
+
   }
 
 
@@ -108,13 +131,13 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
         action={isLoggedIn ? `http://localhost:5005/api/update-total/${tableId}` : "foo"}
       >
 
-      
+
         {arrFinalOrder.map((order) => {
           return (
             <div class="mb-3">
               <div class="input-group">
-                <p>{order[0]}, {order[1]}, {order[2]}</p>
-                <span class="input-group-text">{order[0]}</span>
+
+
 
                 {isLoggedIn ? <><input
                   type="number"
@@ -126,35 +149,36 @@ const FinalOrder = ({ getDataFromFinalOrder, tableId}) => {
                   max="100"
                 />
 
-             
-</>
-                  :
 
-                  <input
-                    type="number"
-                    class="form-control"
-                    name={order[0]}
-                    aria-label="Dollar amount (with dot and two decimal places)"
-                    defaultValue={order[1]}
-                    min="0"
-                    max="100"
-                    readOnly
-                  />}
+                </>
+                  :
+                  <>
+                    <span class="input-group-text opacity" id="productSpan">{order[0]}</span>
+                    <input
+                      type="number"
+                      class="form-control opacity"
+                      name={order[0]}
+                      aria-label="Dollar amount (with dot and two decimal places)"
+                      defaultValue={order[1]}
+                      min="0"
+                      max="100"
+                      readOnly
+                    /></>}
 
                 <input type="hidden" value={tableId} name="id"></input>
-                <span class="input-group-text">€</span>
+                <span class="input-group-text opacity"> {parseInt(order[1]) * order[2]} </span>
 
-                <span class="input-group-text">
-                  {parseInt(order[1]) * order[2]}
+                <span class="input-group-text opacity">
+                 €
                 </span>
               </div>
             </div>
           );
         })}
-        {isLoggedIn ? <><button href="#">Actualizar cuenta</button> </>: "boton del cliente"}
+        {isLoggedIn ? <><button href="#">Actualizar cuenta</button> </> : <Button className="btn-primary" href="/payment-gateway">Proceder a pago</Button>}
       </form>
 
-       <Button  onClick={resetTable}>Resetear1 mesa</Button> 
+      {isLoggedIn && <Button onClick={resetTable}>Resetear mesa</Button>}
     </>
   );
 };

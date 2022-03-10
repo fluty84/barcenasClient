@@ -11,7 +11,7 @@ const ToPay = ({totalData}) => {
 
     return (
         <>
-        <h1>{totalSum} €</h1>
+            <h1> <p>Total a pagar es:</p>{totalSum} €</h1>
         </>
     )
 }
