@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
+import { useContext } from "react"
 import restaurantService from "../../services/restaurant.services"
 import { Form, Button } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import "./CreateOrder.css"
-
 const CreateOrder = (props) => {
 
   const [products, setProducts] = useState([])
   const [orderForm, setOrderForm] = useState({})
-  
+
   useEffect(() => {
     loadMenu()
 
@@ -57,30 +57,46 @@ const CreateOrder = (props) => {
 
   return (
     <>
+      
+      <p id="titleMenu">   Lista de productos</p>
       <Form onSubmit={handleSubmit}>
-        Lista de productos Pide
+     
+      
+    
         {products.map((product) => {
           return (
-            <li key={product._id}>
-              <label htmlFor="buttonn">     
-              <p>{product.name} {product.price}
-                     <input
-            id="buttonn"
-                type="number"
-                name={product.name}
-                value={orderForm[product.name]}
-                onChange={handleInputChange}
-              ></input>
-              <input
-                type="hidden"
-                name="id"
-                value="621f984c745ab17740b49361" //
-              ></input>  </p> </label>
-            
-            </li>
+
+       
+
+              <li key={product._id}>
+                <label htmlFor={product._id}>
+                
+                    <p>{product.name}   {product.price}€
+                    </p>
+           
+                 <div>
+                    <input
+                      id={product._id}
+                      type="number"
+                      name={product.name}
+                      value={orderForm[product.name]}
+                      onChange={handleInputChange}
+                  ></input> <span> Unidades</span> 
+                </div>  
+                    <input
+                      type="hidden"
+                      name="id"
+                      value="621f984c745ab17740b49361" //
+                    ></input>
+              
+                </label>
+              <hr></hr>
+              </li>
+    
           )
         })}
-        <Button type="submit" size="sm" variant="primary" className="shadow p-3">Enviar orden</Button>
+          <Button type="submit" size="sm" variant="primary" className="shadow p-3">Enviar orden</Button>
+       
       </Form>
     </>
   )
