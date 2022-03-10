@@ -31,14 +31,16 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
   })
 
   const accept = () => {
-    socket.emit("join_room", "ACEPTADO");
+    //socket.emit("join_room", "ACEPTADO");
 
     restaurantService
       .acceptOrder({ id: tableId[0] })
       .then(({ data }) => {
         console.log(data);
       })
+      .then(()=>handleClose())
       .catch((err) => console.log(err));
+      
   };
 
   const cancel = () => {
