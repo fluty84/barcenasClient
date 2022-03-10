@@ -8,7 +8,7 @@ import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
 import { Box, Modal, Typography } from "@mui/material";
 
-const socket = io.connect('https://waiterhack.herpkuapp.com/');
+const socket = io.connect();
 
 import("./DayPanel.css");
 
