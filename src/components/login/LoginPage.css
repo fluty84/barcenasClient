@@ -9,7 +9,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: rgba(249, 253, 250, 0.845);
     max-width: 50%;
 }
 
@@ -38,9 +38,9 @@ h1{
   margin: 5px
 }
 
-.btn-primary {
-    border: solid #212529;
-    color: #212529;
+.login-btn {
+    border:2px solid #4a4f54!important;
+    color: #43464b!important;
     border-radius: 10px;
     margin-top: 10px;
 }

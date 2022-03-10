@@ -9,7 +9,7 @@ import io from "socket.io-client";
 import { Box, Button, Modal, Typography } from "@mui/material";
 
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://waiterhack.netlify.app/");
 
 
 import("./DayPanel.css");
@@ -99,6 +99,7 @@ const DayPanel = () => {
           ></TableDetails>
         </Box>
       </Modal>
+
       <Button href="/" className="btn-primary btn-back">Volver</Button>
     </>
   );

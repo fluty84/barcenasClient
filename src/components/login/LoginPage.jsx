@@ -73,8 +73,8 @@ const LoginPage = () => {
               value={password}
             />
           </FormGroup>
-      <Button variant="primary" type="submit" id='login'>
-        Submit
+      <Button variant="primary" type="submit" id='login' className="login-btn">
+        Enviar
       </Button>
           
         </Form>

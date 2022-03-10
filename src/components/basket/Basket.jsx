@@ -8,10 +8,10 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://waiterhack.netlify.app/");
 
 function Basket(props) {
-  
+
   const { isLoggedIn } = useContext(AuthContext);
   let { tableId, _id } = useParams();
 
@@ -25,7 +25,7 @@ function Basket(props) {
     tableId = props.tableId;
 
   }
- 
+
   const [orders, setOrder] = useState([]);
   const [ticket, setTicket] = useState([]);
   const [changes, setChanges] = useState(false);
@@ -34,7 +34,7 @@ function Basket(props) {
   const [isAcceptedBtn, setIsAcceptedBtn] = useState(false);
   const [qtyProductsArr, setQtyProductsArr] = useState([])
 
-   const joinRoom = () => {
+  const joinRoom = () => {
     socket.emit("join_room", orders);
   };
 
@@ -42,12 +42,12 @@ function Basket(props) {
     if (msg === "ACEPTADO") {
       if (!isLoggedIn) {
         console.log("jejehehehehehehhe")
-      setIsOrder(msg);
-      setIsOrder(true);
-      setIsSubmittedOrder(false)
-      setIsAcceptedBtn(true);
+        setIsOrder(msg);
+        setIsOrder(true);
+        setIsSubmittedOrder(false)
+        setIsAcceptedBtn(true);
       }
-     
+
     }
   });
 
@@ -57,8 +57,8 @@ function Basket(props) {
 
   // useEffect(() => {
   // // if (isOrder) {navigate(`/${_id}/${tableId}/vista-cliente`)}
-     
-  
+
+
   // }, [isOrder]);
   useEffect(() => {
     productService
@@ -80,15 +80,16 @@ function Basket(props) {
 
   useEffect(() => {
     if (didMount.current) {
-      if(isSubmittedOrder) { 
+      if (isSubmittedOrder) {
 
-       console.log(orders, "-------------------------")
+        console.log(orders, "-------------------------")
         productService
-        .createOrder(...orders, tableId)
-        .then(() =>  setOrder([]))
-        .then(() => console.log(orders))
-        .catch((err) => console.log(err));}
-     
+          .createOrder(...orders, tableId)
+          .then(() => setOrder([]))
+          .then(() => console.log(orders))
+          .catch((err) => console.log(err));
+      }
+
     } else {
       didMount.current = true;
     }
@@ -170,7 +171,7 @@ function Basket(props) {
     e.preventDefault();
     setIsAcceptedBtn(true);
     setIsSubmittedOrder(true);
-    
+
     joinRoom();
   };
 
@@ -212,7 +213,7 @@ function Basket(props) {
         ))}
 
 
-      { (
+      {(
         <Form onSubmit={handleSubmit}>
           {!isAcceptedBtn && !isLoggedIn ? (
             <button className="btn btn-primary" type="submit">
