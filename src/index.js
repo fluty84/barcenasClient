@@ -8,7 +8,7 @@ import './index.css';
 ReactDOM.render(
     <AuthProviderWrapper>
     <Router>
-      
+  
             <App />
  
     </Router>

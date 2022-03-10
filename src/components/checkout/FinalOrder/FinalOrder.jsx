@@ -128,7 +128,7 @@ const FinalOrder = (props) => {
         className="foodList"
         id="formCheckOut"
         method="POST"
-        action={isLoggedIn ? `http://localhost:5005/api/update-total/${tableId}` : "foo"}
+        action={isLoggedIn ? `http://waiterhack.herpkuapp.com/api/update-total/${tableId}` : "foo"}
       >
 
 
