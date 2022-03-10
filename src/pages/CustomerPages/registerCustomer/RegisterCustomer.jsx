@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 const RegisterCustomer = () => {
 
     const navigate = useNavigate()
-    const {tableId} = useParams()
+    const {tableId, _id} = useParams()
 
     const [customerData, setCustomerData] = useState(
         {

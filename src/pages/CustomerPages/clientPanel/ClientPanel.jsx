@@ -1,6 +1,35 @@
+import { Button } from '@mui/material'
+import { Col, Row } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import NavbarClient from '../../../components/navbarClient/NavbarClient'
+
+import './ClientPanel.css'
+
+
 const ClientPanel = () => {
 
-    return (<h1>CLient Panel...... Poner boton a pago y a menu-pedido</h1>)
+    const { _id, tableId } = useParams()
+
+
+    return (
+        <>
+            <NavbarClient> </NavbarClient>
+            <h1>Bienvenido a WaiterHack</h1>
+            <p>Buen Provecho</p>
+            <Row>
+                <Col md={6}>
+                    <Button href={`/${_id}/${tableId}/customer-order`}>Haz tu pedido</Button>
+                </Col>
+
+                <Col md={6}>
+                    <Button href={`/restaurante/${_id}/${tableId}/check-out`}>Pago</Button>
+                </Col>
+            </Row>
+           
+
+
+        </>
+    )
 }
 
 export default ClientPanel
