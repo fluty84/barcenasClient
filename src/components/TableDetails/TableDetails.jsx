@@ -88,7 +88,7 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
             Imprimir QR
           </Button>
 
-            <Button className="btn-primary" href="`/restaurante/${_id}/${tableIdModal}/check-out`">Go to Checkout</Button>
+            <Button className="btn-primary" href={`/restaurante/${_id}/${tableIdModal}/check-out`}>Go to Checkout</Button>
        
         </Col>
       </Row>
