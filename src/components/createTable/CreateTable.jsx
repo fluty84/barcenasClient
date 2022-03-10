@@ -65,7 +65,8 @@ const CreateTable = ({ handleClose }) => {
         <Form id="createTableForm" onSubmit={handleSubmit}>
           <div>
             <h2> Indica el número de Mesas </h2>
-            <Fab
+            <Fab 
+              className="operator"
               color="primary"
               aria-label="add"
               onClick={() => {
@@ -82,6 +83,7 @@ const CreateTable = ({ handleClose }) => {
               value={table.numberOfTables}
             />
             <Fab
+              className="operator"
               color="primary"
               aria-label="add"
               onClick={() => {
