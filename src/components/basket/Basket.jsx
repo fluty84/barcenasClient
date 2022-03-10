@@ -8,7 +8,7 @@ import io from "socket.io-client";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const socket = io.connect();
+const socket = io.connect('https://waiterhack.herpkuapp.com/');
 
 function Basket(props) {
   

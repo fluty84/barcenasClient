@@ -21,9 +21,9 @@ return (
         showLabels
         
     >
-        <BottomNavigationAction label="Pago" icon={<Credit />} />
-        <BottomNavigationAction label="Menu" icon={<Egg />} />
-        <BottomNavigationAction label="Cesta" icon={<Basket />} />
+        <BottomNavigationAction label="Pago" img={<Credit />} />
+        <BottomNavigationAction label="Menu" img={<Egg />} />
+        <BottomNavigationAction label="Cesta" img={<Basket />} />
     </BottomNavigation> 
                    
 )
