@@ -30,7 +30,7 @@ li {
 
 }
 
-li p {
+#create-order-list p{
     display: flex;
     justify-content: space-between;
     text-align: center;
