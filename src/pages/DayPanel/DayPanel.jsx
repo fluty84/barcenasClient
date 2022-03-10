@@ -99,6 +99,7 @@ const DayPanel = () => {
           ></TableDetails>
         </Box>
       </Modal>
+      
       <Button href="/" className="btn-primary btn-back">Volver</Button>
     </>
   );
