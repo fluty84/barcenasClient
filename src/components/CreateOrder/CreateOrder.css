@@ -87,3 +87,8 @@ li  input {
 #titleMenu {
     margin-top: 50px;
 }
+
+.unit {
+    border: 1px solid white;
+    border-radius: 4px;
+}

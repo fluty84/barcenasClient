@@ -148,13 +148,12 @@ const FinalOrder = (props) => {
                   min="0"
                   max="100"
                 />
-
-
                 </>
                   :
-                  <>
-                    <span class="input-group-text opacity" id="productSpan">{order[0]}</span>
+                  <div className="topayForm">
+                    <span class="input-group-text opacity">{order[0]}</span>
                     <input
+                      id="productUnits"
                       type="number"
                       class="form-control opacity"
                       name={order[0]}
@@ -163,14 +162,16 @@ const FinalOrder = (props) => {
                       min="0"
                       max="100"
                       readOnly
-                    /></>}
+                    />
 
                 <input type="hidden" value={tableId} name="id"></input>
-                <span class="input-group-text opacity"> {parseInt(order[1]) * order[2]} </span>
+                
+                    <span className="input-group-text opacity" id="productTotal" > {parseInt(order[1]) * order[2]} </span>
 
-                <span class="input-group-text opacity">
+                <span className="input-group-text opacity">
                   €
                 </span>
+                  </div>}
               </div>
             </div>
           );

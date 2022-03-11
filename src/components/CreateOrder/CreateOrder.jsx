@@ -75,7 +75,8 @@ const CreateOrder = (props) => {
                     </p>
            
                  <div>
-                    <input
+                    <input 
+                      className="unit"
                       id={product._id}
                       type="number"
                       name={product.name}

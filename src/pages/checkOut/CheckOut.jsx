@@ -17,7 +17,7 @@ const CheckOut = () => {
     return (
 
         <>     
-        <p>ChekOut Component</p>
+       
             <FinalOrder getDataFromFinalOrder={getDataFromFinalOrder} tableId={tableId} />
             <ToPay totalData={totalData} />
 
