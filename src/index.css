@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-image: url("./images/44064.jpg");
+  background-image: url("./images/fruitsBlur.jpg");
+  background-repeat: repeat-y;
+  background-size:cover;
   font-family: 'Homemade Apple', cursive;
   font-family: 'Pangolin', cursive;
   color: white
