@@ -1,4 +1,4 @@
-import paymentImg from "./Screenshot 2022-03-09 113430.png"
+import paymentImg from "./pay.png"
 import NavbarClient from "../../components/navbarClient/NavbarClient"
 import "./PaymentGateway.css"
 
