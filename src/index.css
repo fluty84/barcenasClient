@@ -17,7 +17,7 @@ body {
   color: white;
   border-radius: 10px;
   margin-top: 10px;
-  font-style: none;
+  text-decoration: none;
 }
 
 h1{
@@ -34,5 +34,15 @@ p {
     color: inherit;
     font-family: "Pangolin"!important;
     font-weight: 800 !important;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.btn-back {
+    position: absolute!important;
+    bottom: 80px;
+    left: 100px;
 }
 

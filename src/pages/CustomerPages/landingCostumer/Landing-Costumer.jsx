@@ -4,6 +4,7 @@ import restaurantService from "../../../services/restaurant.services"
 import RegisterCustomer from "../registerCustomer/RegisterCustomer"
 import LoginCustomer from "../loginCostumer/LoginCustomer"
 
+import './Landing-Costumer.css'
 
 const LandingCustomer = () => {
 
@@ -15,9 +16,8 @@ const LandingCustomer = () => {
 
 
     useEffect(() => {
-        if (isTable) { getTable()
+        if (tableId != undefined) { getTable()
 }
-       
        
     }, [isTable])
 
@@ -33,12 +33,17 @@ const LandingCustomer = () => {
 
     return (
 
-        <>
-            <h1>Bienvenido a la web LANDING COMPONENT</h1>
+        <div className="login-table">
 
-            {isTable && table.password ? <p> <LoginCustomer tablePassword={table.password}></LoginCustomer></p> : <RegisterCustomer></RegisterCustomer>}
 
-        </>
+            {isTable && table.password ? 
+            <div>
+                <h1>Esta es la mesa de {table.customer}</h1>
+                <p> <LoginCustomer tablePassword={table.password}></LoginCustomer></p>
+            </div>
+            : <RegisterCustomer></RegisterCustomer>}
+
+        </div>
     )
 }
 

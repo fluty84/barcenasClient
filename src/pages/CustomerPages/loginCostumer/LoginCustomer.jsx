@@ -41,11 +41,10 @@ const LoginCustomer = ({ tablePassword }) => {
     return (
 
         <>
-            <Grid container>
+            <Grid container className='gridForm jusfy-content-center'>
 
-                <h2>Indica un username y un password para poder realizar tu pedido</h2>
-
-                <h1>COMPONENTE LOGINCUSTOMER.JSX</h1>
+                <h3>Indtroduce el nombre y clave de sesión</h3>
+                <p>*pregunta a tus compañeros de mesa con cual se registraron</p>
 
                 <Form onSubmit={handleSubmit} >
 
@@ -68,7 +67,7 @@ const LoginCustomer = ({ tablePassword }) => {
                         value={password}
                         onChange={handleInputChange}
                     />
-                    <Button variant="outlined" size="medium" type='submit' >
+                    <Button className='login-btn' variant="outlined" size="medium" type='submit' >
                         Enviar
                     </Button>
                 </Form>

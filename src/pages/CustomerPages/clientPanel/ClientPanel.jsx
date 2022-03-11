@@ -1,8 +1,9 @@
 
 import { Col, Row } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import NavbarClient from '../../../components/navbarClient/NavbarClient'
 import { Button } from 'react-bootstrap'
+
 
 import './ClientPanel.css'
 
@@ -15,15 +16,15 @@ const ClientPanel = () => {
     return (
         <>
             <NavbarClient> </NavbarClient>
-            <h1>Bienvenido a WaiterHack</h1>
-            <p>Buen Provecho</p>
+            <h1>Bienvenido a Bar Cenas</h1>
+            <h3>Buen Provecho</h3>
             <Row>
                 <Col md={6}>
-                    <Button className="btn-primary" href={`/${_id}/${tableId}/customer-order`}>Haz tu pedido</Button>
+                    <Link to={`/${_id}/${tableId}/customer-order`} className='link'><Button className="btn-primary" >Haz tu pedido</Button></Link>
                 </Col>
 
                 <Col md={6}>
-                    <Button className = "btn-primary" href={`/restaurante/${_id}/${tableId}/check-out`}>Pago</Button>
+                    <Link to={`/restaurante/${_id}/${tableId}/check-out`}><Button className= "btn-primary" >Pago</Button></Link>
                 </Col>
             </Row>
            

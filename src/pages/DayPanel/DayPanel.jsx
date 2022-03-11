@@ -7,6 +7,7 @@ import mesaOff from "./mesa-off.png";
 import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
 import { Box, Button, Modal, Typography } from "@mui/material";
+import { Link} from "react-router-dom";
 
 
 const socket = io.connect("https://waiterhack.netlify.app/");
@@ -108,7 +109,7 @@ const DayPanel = () => {
         </Box>
       </Modal>
 
-      <Button href="/" className="btn-primary btn-back">Volver</Button>
+      <Link to="/" className='link' ><Button  className="btn-primary btn-back">Volver</Button></Link>
     </>
   );
 };

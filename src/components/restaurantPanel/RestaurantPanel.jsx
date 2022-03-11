@@ -28,7 +28,7 @@ const RestaurantPanel = () => {
         <Row className="justify-content-md-center mt-5">
           <Col className="modifyMenuBtn" md={6}>
            
-              <Button href={`/restaurante/${_id}/menu`} className="btn-primary">Modificar Menú</Button>
+            <Link className="link" to={`/restaurante/${_id}/menu`} ><Button  className="btn-primary">Modificar Menú</Button></Link>
           
           </Col>
           <Col className="newTableModal" md={6}>
@@ -55,7 +55,7 @@ const RestaurantPanel = () => {
           </Col>
           <Col>
             
-            <Button href={`/panel`} className="btn-primary">Jornada</Button>
+            <Link to={`/panel`} className='link' ><Button className="btn-primary">Jornada</Button></Link>
         
           </Col>
         </Row>

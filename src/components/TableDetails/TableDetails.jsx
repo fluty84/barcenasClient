@@ -82,15 +82,16 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
             </>
           ) : null}
 
-          <Button
-            className="btn-primary"
-            href={`/restaurante/${_id}/panel/${order._id}/qr/${number}`}
-            target="_blank"
-          >
-            Imprimir QR
-          </Button>
+          <Link to={`/restaurante/${_id}/panel/${order._id}/qr/${number}`} className='link'>
+            <Button
+              className="btn-primary"
+              target="_blank"
+            >
+              Imprimir QR
+            </Button>
+          </Link>
 
-            <Button className="btn-primary" href={`/restaurante/${_id}/${tableIdModal}/check-out`}>Go to Checkout</Button>
+          <Link to={`/restaurante/${_id}/${tableIdModal}/check-out`} className='link'><Button className="btn-primary" >Go to Checkout</Button></Link>
        
         </Col>
       </Row>

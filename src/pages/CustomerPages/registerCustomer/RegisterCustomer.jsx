@@ -5,6 +5,7 @@ import { Form } from 'react-bootstrap'
 import authService from '../../../services/auth.services'
 import { useNavigate, useParams } from 'react-router-dom'
 
+import './registerCustomer.css'
 
 const RegisterCustomer = () => {
 
@@ -45,16 +46,17 @@ const RegisterCustomer = () => {
     return (
 
         <>
-            <Grid container>
+            <Grid container md={8} className='gridForm jusfy-content-center'>
 
-                <h2>Indica un username y un password para registrarte</h2>
+                <h3>Crea un nombre y clave de sesisón para pedir</h3>
+                <p>*el nombre y clave se borrarán al pagar la cuenta</p>
 
                 <Form onSubmit={handleSubmit} >
 
                     <TextField className='textField'
                         required
 
-                        label="Customer"
+                        label="Nombre"
                         name="customer"
                         type="text"
                         value={customer}
@@ -64,13 +66,13 @@ const RegisterCustomer = () => {
                     <TextField className='textField'
                         required
 
-                        label="password"
+                        label="Clave de tu visita"
                         name="password"
                         type="password"
                         value={password}
                         onChange={handleInputChange}
                     />
-                    <Button variant="outlined" size="medium" type='submit' >
+                    <Button className='login-btn' variant="outlined" size="medium" type='submit' >
                         Enviar
                     </Button>
                 </Form>
