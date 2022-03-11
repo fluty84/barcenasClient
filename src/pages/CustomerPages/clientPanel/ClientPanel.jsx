@@ -15,7 +15,7 @@ const ClientPanel = () => {
 
     return (
         <>
-            <NavbarClient> </NavbarClient>
+           
             <h1>Bienvenido a Bar Cenas</h1>
             <h3>Buen Provecho</h3>
             <Row>

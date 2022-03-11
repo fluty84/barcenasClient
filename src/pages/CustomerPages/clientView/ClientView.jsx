@@ -52,7 +52,7 @@ const ClientView = () => {
 
   return (
     <>
-      <NavbarClient> </NavbarClient>
+     
       <h1 id="titleCustomer">Haz tu pedido</h1>
 <Container>
       <Row container spacing={2}>
