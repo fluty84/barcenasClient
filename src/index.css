@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  
+  background-color: rgb(3, 11, 3);
+  
   background-image: url("./images/fruitsBlur.jpg");
   background-repeat: repeat-y;
   background-size:cover;

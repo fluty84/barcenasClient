@@ -80,9 +80,9 @@ const LoginPage = () => {
         </Form>
 
         
+      <Link className="button-block" to={'/restaurante/registro'}> ¿No tienes usuario? ¡Regístrate!</Link>
       </div>
 
-      <Link className="button-block" to={'/restaurante/registro'}> ¿No tienes usuario? ¡Regístrate!</Link>
     </Container>
   )
 }

@@ -1,6 +1,6 @@
 
 
-form {
+form, .createForm {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -8,8 +8,12 @@ form {
     justify-content: center;
     align-items: center;
     margin-top: 50px !important;
-    margin-left: 10px !important;
+    
 
+}
+
+.createForm{
+    margin-left: 10px !important;   
 }
 
 form label {
@@ -68,13 +72,13 @@ li  input {
 
 .btn-primary:focus {
     border-color: white ;
-     box-shadow: 0 5px 5px rgba(228, 217, 214) !important;
-        background-color: transparent 
+    box-shadow: 0 5px 5px rgba(228, 217, 214) !important;
+    background-color: transparent 
 }
 
 .btn-primary:focus:hover {
     border-color: white ;
-     box-shadow: 0 5px 5px rgba(228, 217, 214) !important;
+    box-shadow: 0 5px 5px rgba(228, 217, 214) !important;
   
 }
 

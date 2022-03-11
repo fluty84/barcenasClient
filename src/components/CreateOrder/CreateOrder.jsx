@@ -59,7 +59,7 @@ const CreateOrder = (props) => {
     <>
       
       <p id="titleMenu">   Lista de productos</p>
-      <Form onSubmit={handleSubmit}>
+      <Form className="createForm" onSubmit={handleSubmit}>
      
       
     

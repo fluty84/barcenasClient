@@ -1,7 +1,11 @@
 #login-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   margin-top: 50px;
+  border-color: white;
 }
 
 #login-form > form {
@@ -23,19 +27,19 @@ h1{
   font-size: 4em;
 }
 
-.loginForm{
-  
-  border-color: white;
-}
 
 .form {
   background-color: white;
+
 }
 
 .button-block {
   display: block;
   color:white;
-  margin: 5px
+  margin: 0px;
+  margin-top: 5px
+  
+
 }
 
 .login-btn {

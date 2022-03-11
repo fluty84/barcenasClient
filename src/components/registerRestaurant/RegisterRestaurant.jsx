@@ -42,11 +42,11 @@ const RegisterRestaurant = () => {
     return (
 
 
-        <Grid container>
+        <Grid container className='login-form'>
 
             <h2>Registra tu Restaurante </h2>
 
-            <Form onSubmit={handleSubmit} >
+            <Form onSubmit={handleSubmit} className='form'>
 
                 <TextField className='textField'
                     required
@@ -88,7 +88,7 @@ const RegisterRestaurant = () => {
                     onChange={handleInputChange}
                 />
 
-                <Button variant="outlined" size="medium" type='submit' >
+                <Button  className='login-btn ' variant="outlined" size="medium" type='submit' >
                     Enviar
                 </Button>
             </Form>
