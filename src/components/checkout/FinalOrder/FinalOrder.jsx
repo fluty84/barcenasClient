@@ -122,7 +122,7 @@ const FinalOrder = (props) => {
 
   return (
     <>
-      <h1>FINAL ORDER: PAGA CABRON</h1>
+      <h1>Total a pagar</h1>
 
       <form
         className="foodList"
