@@ -128,7 +128,7 @@ const FinalOrder = (props) => {
         className="foodList"
         id="formCheckOut"
         method="POST"
-        action={isLoggedIn ? `http://waiterhack.herpkuapp.com/api/update-total/${tableId}` : "foo"}
+        action={isLoggedIn ? `https://waiterhack.herpkuapp.com/api/update-total/${tableId}` : "foo"}
       >
 
 
@@ -169,13 +169,14 @@ const FinalOrder = (props) => {
                 <span class="input-group-text opacity"> {parseInt(order[1]) * order[2]} </span>
 
                 <span class="input-group-text opacity">
-                 €
+                  €
                 </span>
               </div>
             </div>
           );
         })}
-        {isLoggedIn ? <><button type="submit" href="#">Actualizar cuenta</button> </> : <Button className="btn-primary" href="/payment-gateway">Proceder a pago</Button>}
+        {isLoggedIn ? <><button type="submit" href="#">Actualizar cuenta</button> </>
+          : <Button className="btn-primary" href="/payment-gateway">Proceder a pago</Button>}
       </form>
 
       {isLoggedIn && <Button onClick={resetTable}>Resetear mesa</Button>}
