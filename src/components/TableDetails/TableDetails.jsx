@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import restaurantService from "../../services/restaurant.services";
 import { io } from "socket.io-client";
 
-const socket = io.connect("https://waiterhack.netlify.app/");
+const socket = io()
 
 
 import("./TableDetails.css");
@@ -38,9 +38,9 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
       .then(({ data }) => {
         console.log(data);
       })
-      .then(()=>handleClose())
+      .then(() => handleClose())
       .catch((err) => console.log(err));
-      
+
   };
 
   const cancel = () => {
@@ -92,7 +92,7 @@ const TableDetails = ({ order, handleClose, number, tableIdModal }) => {
           </Link>
 
           <Link to={`/restaurante/${_id}/${tableIdModal}/check-out`} className='link'><Button className="btn-primary" >Go to Checkout</Button></Link>
-       
+
         </Col>
       </Row>
     </div>
