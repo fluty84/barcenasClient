@@ -33,28 +33,29 @@ const DayPanel = () => {
   });
 
 
-  // useEffect(() => { // sin socket version
-  //   loadTables();
-  // }, [user]);
+  useEffect(() => { //
+    loadTables();
+  }, [user]);
 
-  // useEffect(() => {
-  //   const refresh = setInterval(()=> {
-  //     loadTables()}, 1000) 
+  useEffect(() => {
+    const refresh = setInterval(() => {
+      loadTables()
+    }, 1000)
 
-  // return () => clearInterval(refresh)
-  // }, [user])
+    return () => clearInterval(refresh)
+  }, [user])
 
 
   const didMount = useRef(false);
 
 
-  useEffect(() => {
-    if (didMount.current) {
-      loadTables();
-    } else {
-      didMount.current = true;
-    }
-  }, [isOrder]);
+  // useEffect(() => {
+  //   if (didMount.current) {
+  //     loadTables();
+  //   } else {
+  //     didMount.current = true;
+  //   }
+  // }, [isOrder]);
 
   const loadTables = () => {
 

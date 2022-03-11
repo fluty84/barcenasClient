@@ -53,28 +53,28 @@ function Basket(props) {
     }
   });
 
-  // useEffect(() => {  //solo sin socket
-  // if(isAcceptedBtn) { const refresh = setInterval(() => {
+  useEffect(() => {  //solo sin socket
+  if(isAcceptedBtn) { const refresh = setInterval(() => {
 
-  //     productService
-  //       .displayOrder(tableId)
-  //       .then((response) => {
-  //         if (!response.data.result.currentOrder.length) {
+      productService
+        .displayOrder(tableId)
+        .then((response) => {
+          if (!response.data.result.currentOrder.length) {
 
-  //           setIsOrder(true);
-  //           setIsSubmittedOrder(false)
-  //           setIsAcceptedBtn(true);   
+            setIsOrder(true);
+            setIsSubmittedOrder(false)
+            setIsAcceptedBtn(true);   
 
-  //           setTimeout(() => {
-  //             navigate(`/${_id}/${tableId}/panel-cliente`)
-  //           }, 5000);
-  //         }
+            setTimeout(() => {
+              navigate(`/${_id}/${tableId}/panel-cliente`)
+            }, 5000);
+          }
 
-  //       })
-  //   }, 1000)
-  //   return () => clearInterval(refresh)
-  // }
-  // }, [orders, changes])
+        })
+    }, 1000)
+    return () => clearInterval(refresh)
+  }
+  }, [orders, changes])
 
   useEffect(() => { ///Renderizado general
     filter(orders);
@@ -194,7 +194,7 @@ function Basket(props) {
     setIsAcceptedBtn(true);
     setIsSubmittedOrder(true);
 
-    joinRoom();
+    //joinRoom(); //quitar sin socket
   };
 
 
