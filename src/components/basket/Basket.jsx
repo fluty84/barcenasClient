@@ -239,7 +239,7 @@ function Basket(props) {
         <Form onSubmit={handleSubmit}>
           {!isAcceptedBtn && !isLoggedIn ? (
             <button className="btn btn-primary" type="submit">
-              Añadir a la cesta
+              Confirmar Pedido
             </button>
           ) : (
             <button className="btn btn-primary" type="submit">
