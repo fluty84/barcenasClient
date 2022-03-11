@@ -68,7 +68,7 @@ const DayPanel = () => {
   return (
     <>
       <h1>Jornada </h1>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-center mb-5">
         {tables?.map((table, idx) => {
           return (
             <Col md={3} className="mesa" key={idx}>
