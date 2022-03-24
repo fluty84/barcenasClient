@@ -170,11 +170,8 @@ const FinalOrder = (props) => {
 
                 <input type="hidden" value={tableId} name="id"></input>
                 
-                <span className="input-group-text opacity" id="productTotal" > {parseInt(order[1]) * order[2]} </span>
-
-                <span className="input-group-text opacity">
-                  €
-                </span>
+                <span className="input-group-text opacity" id="productTotal" > {parseInt(order[1]) * order[2]} € </span>
+                
                   </div>}
               </div>
             </div>
