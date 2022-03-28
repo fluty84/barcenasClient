@@ -23,6 +23,10 @@ class ProductService {
     return this.api.post("/create-product", product);
   };
 
+  deleteProduct = (product) => {
+    return this.api.post("/delete-product", {_id: product})
+  }
+
   getAll = () => {
     const { user } = useContext(AuthContext);
 
