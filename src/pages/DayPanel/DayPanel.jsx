@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/auth.context";
 import restaurantService from "../../services/restaurant.services";
 import mesaOn from "./mesa-on.png";
 import mesaOff from "./mesa-off.png";
+import mesaOpen from "./mesa-open.png"
 import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
 import { Box, Button, Modal, Typography } from "@mui/material";
@@ -82,7 +83,8 @@ const DayPanel = () => {
                   setTableIdModal(table._id)
                   handleOpen();
                 }}
-                src={!table.currentOrder.length ? mesaOff : mesaOn}
+                src={!table.currentOrder.length && table.total.length ? mesaOpen :
+                   table.currentOrder.length ? mesaOn : mesaOff }
               ></input>
             </Col>
           );
