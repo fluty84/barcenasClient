@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import restaurantService from "../../../services/restaurant.services";
 import { useParams } from "react-router-dom";
 import Basket from "../../../components/basket/Basket";
-import CreateOrder from "../../../components/CreateOrder/CreateOrder";
+import CreateOrder from "../../../components/createOrder/CreateOrder";
 import { Row, Col, Container } from "react-bootstrap";
 import "./ClientView.css"
 import NavbarClient from "../../../components/navbarClient/NavbarClient";
