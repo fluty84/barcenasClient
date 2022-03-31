@@ -3,7 +3,7 @@ import RegisterPage from "../pages/registerPage/RegisterPage";
 import CreateMenu from "../components/createMenu/CreateMenu";
 import Basket from "../components/basket/Basket";
 import { Routes, Route } from "react-router-dom";
-import DayPanel from "../pages/dayPanel/DayPanel";
+import DayPanel from "../pages/DayPanel/DayPanel";
 import ClientView from "../pages/customerPages/clientView/ClientView";
 import QrPrint from "../pages/qrPrint/QrPrint";
 import LandingCustomer from "../pages/customerPages/landingCostumer/Landing-Costumer";
