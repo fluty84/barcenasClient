@@ -42,7 +42,7 @@ const FinalOrder = (props) => {
   }, [finalOrderData]);
 
   useEffect(() => {
-    
+
     restaurantService
       .checkTable(tableId)
       .then((res) => {
@@ -67,7 +67,7 @@ const FinalOrder = (props) => {
   };
 
   const objToArr = (arrOfObjects) => {
-    
+
     const arrOfOrders = [];
 
     arrOfObjects.forEach((elm, idx) => {
@@ -88,7 +88,7 @@ const FinalOrder = (props) => {
             }
           })
         }
-      }) 
+      })
 
     })
 
@@ -96,28 +96,28 @@ const FinalOrder = (props) => {
 
     const flatArrOfOrders = arrOfOrders.flat()
     flatArrOfOrders.forEach(order => {
-     if (!ordersResume.includes(order[0])){
-       ordersResume.push(order[0])
-     } 
+      if (!ordersResume.includes(order[0])) {
+        ordersResume.push(order[0])
+      }
     })
 
     const newArrOrderResume = ordersResume.map((elm) => {
-     return [elm]
-   })
+      return [elm]
+    })
 
     let finalSum = 0
 
     newArrOrderResume.forEach((order, index) => {
-      
+
       flatArrOfOrders.forEach(eachOrder => {
         if (order[0] === eachOrder[0]) {
           finalSum += parseInt(eachOrder[1])
           newArrOrderResume[index][2] = eachOrder[2]
         }
       })
-       newArrOrderResume[index][1] = finalSum
-       finalSum = 0
-    }) 
+      newArrOrderResume[index][1] = finalSum
+      finalSum = 0
+    })
 
     setArrFinalOrder(newArrOrderResume)
     props.getDataFromFinalOrder((arrOfOrders.flat()))
@@ -133,13 +133,15 @@ const FinalOrder = (props) => {
 
   }
 
-  const handleInputChange = e =>{
+  const handleInputChange = e => {
 
     const { value, name } = e.target
 
-    setNewOrder( 
-      {...newOrder, 
-      [name]: value}
+    setNewOrder(
+      {
+        ...newOrder,
+        [name]: value
+      }
     )
   }
 
@@ -147,16 +149,16 @@ const FinalOrder = (props) => {
     e.preventDefault()
 
     arrFinalOrder.forEach(elm => {
-      for( const property in newOrder){
-        if(elm[0] === property){
+      for (const property in newOrder) {
+        if (elm[0] === property) {
           elm[1] = parseInt(newOrder[property])
         }
       }
     })
-    
+
     restaurantService
-    .editFinalOrder({arrFinalOrder, tableId})
-    .catch(err => console.log(err))
+      .editFinalOrder({ arrFinalOrder, tableId })
+      .catch(err => console.log(err))
 
   }
 
@@ -180,22 +182,23 @@ const FinalOrder = (props) => {
 
 
 
-                {isLoggedIn ? 
-                
-                <div className="topayForm" >
-                <span class="input-group-text opacity">{order[0]}</span>
-                <input
-                  type="number"
-                  class="form-control"
-                  name={order[0]}
-                  aria-label="Dollar amount (with dot and two decimal places)"
-                  defaultValue={order[1]}
-                  min="0"
-                  max="100"
-                  onChange={handleInputChange}
-                />
-                <span class="input-group-text opacity">{order[2]}€ x ud.</span>
-                </div>
+                {isLoggedIn ?
+
+                  <div className="topayForm" >
+                    <span class="input-group-text opacity">{order[0]}</span>
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="units"
+                      name={order[0]}
+                      aria-label="Dollar amount (with dot and two decimal places)"
+                      defaultValue={order[1]}
+                      min="0"
+                      max="100"
+                      onChange={handleInputChange}
+                    />
+                    <span class="input-group-text opacity">{order[2]}€ x ud.</span>
+                  </div>
                   :
                   <div className="topayForm">
                     <span class="input-group-text opacity">{order[0]}</span>
@@ -211,10 +214,10 @@ const FinalOrder = (props) => {
                       readOnly
                     />
 
-                <input type="hidden" value={tableId} name="id"></input>
-                
-                <span className="input-group-text opacity" id="productTotal" > {parseInt(order[1]) * order[2]} €  </span>
-                
+                    <input type="hidden" value={tableId} name="id"></input>
+
+                    <span className="input-group-text opacity" id="productTotal" > {parseInt(order[1]) * order[2]} €  </span>
+
                   </div>}
               </div>
             </div>
