@@ -44,7 +44,6 @@ class ProductService {
 
 
   displayOrder = (id) => {
-    console.log("this display is: " + id);
     return this.api.get(`/${id}/display-order`);
   };
 

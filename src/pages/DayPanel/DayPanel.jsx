@@ -80,7 +80,6 @@ const DayPanel = () => {
   const loadTables = () => {
 
     if (!isLoggedIn) {
-      console.log('intruso')
       navigate("/")
     }
 
