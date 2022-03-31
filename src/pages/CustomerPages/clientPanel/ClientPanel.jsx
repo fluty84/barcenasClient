@@ -12,6 +12,7 @@ import './ClientPanel.css'
 const ClientPanel = () => {
 
     const [table, setTable] = useState("");
+    const [paid, setPaid] = useState(false)
 
     const { _id, tableId } = useParams()
 
