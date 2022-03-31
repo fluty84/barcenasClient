@@ -3,3 +3,9 @@
     border-radius: 20px;
     font-size: 2em;
 }
+
+.list h2 {
+    color: rgb(255, 77, 0);
+    font-size: 1.5em;
+    font-weight: 600;
+}
