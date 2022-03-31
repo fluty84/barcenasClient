@@ -41,7 +41,12 @@ const MenuList = ({ newProduct }) => {
     <>
       <ul className="list">
         <h2>Menú</h2>
-        {products.map((product) => {
+        {!products ? 
+        (
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only"> Cargando menú...</span>
+        </div> ): 
+        products.map((product) => {
           return (
             <li key={product._id}>
               <p>{product.name} {product.price}€
