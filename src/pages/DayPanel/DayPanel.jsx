@@ -5,7 +5,7 @@ import restaurantService from "../../services/restaurant.services";
 import mesaOn from "./mesa-on.png";
 import mesaOff from "./mesa-off.png";
 import mesaOpen from "./mesa-open.png"
-import TableDetails from "../../components/tableDetails/TableDetails";
+import TableDetails from "../../components/TableDetails/TableDetails";
 import io from "socket.io-client";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { Link, Navigate, useNavigate } from "react-router-dom";
