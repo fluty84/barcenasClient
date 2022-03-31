@@ -28,7 +28,7 @@ element.style {
 }
 
 .new-btn {
-    background-color: rgba(255, 255, 255, 0.228);
-    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.228)!important;
+    font-weight: 600!important;
 }
 
